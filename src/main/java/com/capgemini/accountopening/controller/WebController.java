@@ -26,16 +26,15 @@ public class WebController {
         return "index";
     }
 	
-	@RequestMapping(value="/form", method=RequestMethod.GET)
+	@RequestMapping(value="/personalInfoForm", method=RequestMethod.GET)
     public String usererForm(Model model) {
         model.addAttribute("user", new User());
-        return "form";
+        return "personalInfoForm";
     }
  
-    @RequestMapping(value="/form", method=RequestMethod.POST)
+    @RequestMapping(value="/personalInfoForm", method=RequestMethod.POST)
     public String usererSubmit(@ModelAttribute User user, Model model) {
         model.addAttribute("user", user);
-        user.setFirstName("Eric");
         userRepo.save(user);
         return null;
     }
