@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Account Opening Demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<div align="center">
+        <h1 class="header">Account Opening Demo</h1>
+        <form action="#" th:action="@{/form}" th:object="${user}" method="post">
+			<p><input class="textbox" type="text" th:field="*{firstName}" placeholder="First Name"/></p>
+			<p><input class="textbox" type="text" th:field="*{middleName}" placeholder="Middle Name (Optional)"/></p>
+			<p><input class="textbox" type="text" th:field="*{lastName}" placeholder="Last Name"/></p>
+			<p><input class="textbox" type="text" th:field="*{suffix}" placeholder="Suffix (Optional)"/></p>
+			<p><input class="textbox" type="text" th:field="*{ssn}" placeholder="SSN"/></p>
+			<p><input class="textbox" type="text" th:field="*{dob}" placeholder="DOB"/></p>
+			<p><input class="textbox" type="text" th:field="*{motherMName}" placeholder="Mother's Maiden Name"/></p>
+			<p><input class="btn btn-submit" type="submit" value="Continue"/></p>
+			<p><a class="link" href="/home">Cancel</a></p>
+        </form>
+    </div>
+</body>
+</html>
