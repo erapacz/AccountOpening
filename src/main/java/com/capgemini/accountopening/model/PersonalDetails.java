@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="user")
+@Table(name="c_personal")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class PersonalDetails {
 
@@ -22,26 +22,26 @@ public class PersonalDetails {
 	@Column(name="customer_id")
 	private Long id;
 	
-	@Column(name="first_name")
+	@Column(name="fname")
 	private String firstName;
 	
-	@Column(name="middle_name")
-	private String middleName;
-	
-	@Column(name="last_name")
+	@Column(name="lname")
 	private String lastName;
+	
+	@Column(name="mname")
+	private String middleName;
 	
 	@Column(name="suffix")
 	private String suffix;
 	
 	@Column(name="ssn")
-	private String ssn;
+	private int ssn;
 	
 	@Column(name="dob")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
 	private Date dob;
 	
-	@Column(name="mothers_maiden_name")
+	@Column(name="maiden")
 	private String motherMName;
 
 	public Long getId() {
@@ -84,11 +84,11 @@ public class PersonalDetails {
 		this.suffix = suffix;
 	}
 
-	public String getSsn() {
+	public int getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(String ssn) {
+	public void setSsn(int ssn) {
 		this.ssn = ssn;
 	}
 
