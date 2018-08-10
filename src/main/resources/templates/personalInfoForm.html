@@ -8,16 +8,49 @@
 	<div align="center">
         <h1 class="header">Account Opening Demo</h1>
         <form action="#" th:action="@{/personalInfoForm}" th:object="${user}" method="post">
-			<p><input class="textbox" type="text" th:field="*{firstName}" placeholder="First Name"/></p>
-			<p><input class="textbox" type="text" th:field="*{middleName}" placeholder="Middle Name (Optional)"/></p>
-			<p><input class="textbox" type="text" th:field="*{lastName}" placeholder="Last Name"/></p>
-			<p><input class="textbox" type="text" th:field="*{suffix}" placeholder="Suffix (Optional)"/></p>
-			<p><input class="textbox" type="text" th:field="*{ssn}" placeholder="SSN"/></p>
-			<p><input class="textbox" type="text" th:field="*{dob}" placeholder="DOB"/></p>
-			<p><input class="textbox" type="text" th:field="*{motherMName}" placeholder="Mother's Maiden Name"/></p>
-			<p><input class="btn btn-submit" type="submit" value="Continue"/></p>
+			<p><input id="firstName" class="textbox" type="text" th:field="*{firstName}" placeholder="First Name"/></p>
+			<p><input id="middleName" class="textbox" type="text" th:field="*{middleName}" placeholder="Middle Name (Optional)"/></p>
+			<p><input id="lastName" class="textbox" type="text" th:field="*{lastName}" placeholder="Last Name"/></p>
+			<p><input id="suffix" class="textbox" type="text" th:field="*{suffix}" placeholder="Suffix (Optional)"/></p>
+			<div id="ssn" class="ssn" th:field="*{ssn}">
+				<label class="text">SSN </label>
+				<input id="ssn1" class="ssn" type="text" placeholder="XXX" maxlength="3"/>
+				<label> - </label>
+				<input id="ssn2" class="ssn" type="text" placeholder="XX" maxlength="2"/>
+				<label> - </label>
+				<input id="ssn3" class="ssn" type="text" placeholder="XXXX" maxlength="4"/>
+			</div>
+			<p><input id="dob" class="textbox" type="date" th:field="*{dob}" placeholder="DOB"/></p>
+			<p><input id="motherMName" class="textbox" type="text" th:field="*{motherMName}" placeholder="Mother's Maiden Name"/></p>
+			<p><input class="btn btn-submit" type="submit" onclick="saveData()" value="Continue"/></p>
 			<p><a class="link" href="/home">Cancel</a></p>
         </form>
+        
+        <script type="text/javascript">
+        	function saveData() {
+        		var firstName = document.getElementById("firstName");
+        		sessionStorage.setItem("firstName", firstName.value);
+        		
+        		var middleName = document.getElementById("middleName");
+        		sessionStorage.setItem("middleName", middleName.value);
+        		
+        		var lastName = document.getElementById("lastName");
+        		sessionStorage.setItem("lastName", lastName.value);
+        		
+        		var suffix = document.getElementById("suffix");
+        		sessionStorage.setItem("suffix", suffix.value);
+        		
+        		var ssn = document.getElementById("ssn");
+        		sessionStorage.setItem("ssn", ssn.value);
+        		
+        		var dob = document.getElementById("dob");
+        		sessionStorage.setItem("dob", dob.value);
+        		
+        		var motherMName = document.getElementById("motherMName");
+        		sessionStorage.setItem("motherMName", motherMName.value);
+        	}
+        </script>
+        
     </div>
 </body>
 </html>

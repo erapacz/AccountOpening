@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.capgemini.accountopening.model.User;
-import com.capgemini.accountopening.repository.UserRepository;
+import com.capgemini.accountopening.model.PersonalDetails;
+import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class WebController {
 	
-	List<User> users = new ArrayList<User>();
+	List<PersonalDetails> personalDetails = new ArrayList<PersonalDetails>();
 	
 	@Autowired
-	private UserRepository userRepo;
+	private PersonalDetailsRepository personalDetailsRepo;
 	
 	@RequestMapping(value="/home", method=RequestMethod.GET)
     public String home(Model model) {
@@ -28,14 +28,14 @@ public class WebController {
 	
 	@RequestMapping(value="/personalInfoForm", method=RequestMethod.GET)
     public String usererForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new PersonalDetails());
         return "personalInfoForm";
     }
  
     @RequestMapping(value="/personalInfoForm", method=RequestMethod.POST)
-    public String usererSubmit(@ModelAttribute User user, Model model) {
-        model.addAttribute("user", user);
-        userRepo.save(user);
+    public String usererSubmit(@ModelAttribute PersonalDetails personalDetails, Model model) {
+        model.addAttribute("user", personalDetails);
+        personalDetailsRepo.save(personalDetails);
         return null;
     }
 

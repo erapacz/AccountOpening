@@ -15,11 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="user")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class User {
+public class PersonalDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="user_id")
+	@Column(name="customer_id")
 	private Long id;
 	
 	@Column(name="first_name")
@@ -38,7 +38,8 @@ public class User {
 	private String ssn;
 	
 	@Column(name="dob")
-	private String dob;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	private Date dob;
 	
 	@Column(name="mothers_maiden_name")
 	private String motherMName;
@@ -91,11 +92,11 @@ public class User {
 		this.ssn = ssn;
 	}
 
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 
