@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.capgemini.accountopening.model.ContactDetails;
 import com.capgemini.accountopening.model.PersonalDetails;
 
 @Controller
@@ -26,10 +27,23 @@ public class WebController {
         return "index";
     }
 	
+	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
+    public String toContactDetails(Model model) {
+        return "contactdetails";
+    }
+	
+	
 	@RequestMapping(value="/personalInfoForm", method=RequestMethod.GET)
     public String usererForm(Model model) {
         model.addAttribute("user", new PersonalDetails());
         return "personalInfoForm";
     }
+	
+	@RequestMapping(value="/contactdetails", method=RequestMethod.GET)
+    public String contactdetailserForm(Model model) {
+        model.addAttribute("contactdetails", new ContactDetails());
+        return "contactdetails";
+    }
+ 
 
 }
