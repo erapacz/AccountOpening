@@ -9,28 +9,28 @@
 		<h1 class="header">Contact Details</h1>
 		<form action="/home" onsubmit ="saveData()" method="post">
 			<p>
-				<input id = "Address1" class="textbox" type="text" placeholder="Address1" />
+				<input id = "Address1" class="textbox" type="text" placeholder="Address1" required />
 			</p>
 			<p>
 				<input id = "Address2" class="textbox" type="text" placeholder="Address2 (Optional)" />
 			</p>
 			<p>
-				<input id = "City" class="textbox" type="text" placeholder="City" />
+				<input id = "City" class="textbox" type="text" placeholder="City" onkeypress="return isAlphaKey(event)" required />
 			</p>
 			<p>
-				<input id = "State" class="textbox" type="text" placeholder="State" />
+				<input id = "State" class="textbox" type="text" placeholder="State" onkeypress="return isAlphaKey(event)" required />
 			</p>
 			<p>
-				<input id = "Postal" class="textbox" type="text" placeholder="Postal" />
+				<input id = "Postal" class="textbox" type="text" title="Five digit zip code" placeholder="Postal" maxlength="5" onkeypress="return isNumberKey(event)" required />
 			</p>
 			<p>
-				<input id = "Country" class="textbox" type="text"placeholder="Country" />
+				<input id = "Country" class="textbox" type="text" placeholder="Country" onkeypress="return isAlphaKey(event)" required />
 			</p>
 			<p>
-				<input id = "Phone" class="textbox" type="text" placeholder="Phone" />
+				<input id = "Phone" class="textbox" type="tel" maxlength="13" onkeypress="return isNumberKey(event)" placeholder="Phone" required />
 			</p>
 			<p>
-				<input id = "Email" class="textbox" type="text" placeholder="Email" />
+				<input id = "Email" class="textbox" type="email" placeholder="Email" required />
 			</p>
 			<p>
 				<input id = "Continue" class="btn btn-submit" type="submit" value="Continue" />
