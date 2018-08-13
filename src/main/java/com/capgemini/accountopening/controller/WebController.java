@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.ContactDetails;
 import com.capgemini.accountopening.model.PersonalDetails;
 
@@ -27,12 +28,6 @@ public class WebController {
         return "index";
     }
 	
-	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
-    public String toContactDetails(Model model) {
-        return "contactdetails";
-    }
-	
-	
 	@RequestMapping(value="/personalInfoForm", method=RequestMethod.GET)
     public String usererForm(Model model) {
         model.addAttribute("user", new PersonalDetails());
@@ -44,6 +39,22 @@ public class WebController {
         model.addAttribute("contactdetails", new ContactDetails());
         return "contactdetails";
     }
+	
+	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
+    public String toContactDetails(Model model) {
+        return "contactdetails";
+    }
+	
+	@RequestMapping(value="/accountType", method=RequestMethod.GET)
+	public String accountTypeForm(Model model) {
+		model.addAttribute("accountType", new AccountDetails());
+		return "accountType";
+	}
+	
+	@RequestMapping(value="/accountType", method=RequestMethod.POST)
+	public String toAccountType(Model model) {
+		return "accountType";
+	}
  
 
 }
