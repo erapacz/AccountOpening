@@ -87,5 +87,19 @@ public class WebController {
 	public String toNomineePersonal(Model model) {
 		return "nominee_personal";
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
+    public String confimationForm(Model model) {
+        model.addAttribute("nominee", new Nominee());
+        return "confirmation";
+    }
+	
+	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
+	public String toConfimation(Model model) {
+		return "confirmation";
+	}
 
 }

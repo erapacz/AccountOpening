@@ -11,7 +11,7 @@
 		<button id="add-nominee" onclick="displayNominee()" class="btn">Add Nominee</button>
 	</div>
 	<div id="nominee-section" align="center">
-		<form action="/home" onsubmit="saveNomineeInfo()" method="post">
+		<form action="/confirmation" onsubmit="saveNomineeInfo()" method="post">
 			<p><input id="firstName" class="textbox" type="text"  placeholder="First Name" maxlength="20" onkeypress="return isAlphaKey(event)" required autofocus/></p>
 			<p><input id="middleName" class="textbox" type="text" placeholder="Middle Name (Optional)" maxlength="20" onkeypress="return isAlphaKey(event)"/></p>
 			<p><input id="lastName" class="textbox" type="text" placeholder="Last Name" maxlength="20" onkeypress="return isAlphaKey(event)" required/></p>
@@ -42,7 +42,7 @@
 	</div>
 	<div align="center">
 		<h1 class="header">Account Selection</h1>
-		<form action="/home" onsubmit ="saveAccountDetails()" method="post">
+		<form action="/confirmation" onsubmit ="saveAccountDetails()" method="post">
 			<p>
 				<input id="savings-account" type="radio" class="with-gap" name="account" value="SavingsAccount">
 				<span>Savings Account</span>
