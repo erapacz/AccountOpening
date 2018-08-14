@@ -1,9 +1,18 @@
 
 
-//AccountType
+//AccountDetails
 function displayNominee() {
-		document.getElementById("nominee-section").style.display="block";
-	document.getElementById("add-nominee").style.display="none";
+	
+    var checkBox = document.getElementById("nominee-checkbox");
+    var form = document.getElementById("nominee-section");
+    if (checkBox.checked == true){
+        form.style.display = "block";
+    } else {
+    	form.style.display = "none";
+    }
+	
+	//document.getElementById("nominee-section").style.display="block";
+	//document.getElementById("add-nominee").style.display="none";
 }
 
 function saveAccountDetails() {
