@@ -1,60 +1,78 @@
 package com.capgemini.accountopening.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.ContactDetails;
+import com.capgemini.accountopening.model.Customer;
 import com.capgemini.accountopening.model.PersonalDetails;
+import com.capgemini.accountopening.repository.AccountDetailsRepository;
+import com.capgemini.accountopening.repository.ContactDetailsRepository;
+import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class WebController {
 	
-	List<PersonalDetails> personalDetails = new ArrayList<PersonalDetails>();
-
+	@Autowired
+	private PersonalDetailsRepository personalDetailsRepository;
+	
+	@Autowired
+	private ContactDetailsRepository contactDetailsRepository;
+	
+	@Autowired
+	private AccountDetailsRepository accountDetailsRepository;
 	
 	@RequestMapping(value="/home", method=RequestMethod.GET)
     public String home(Model model) {
+		model.addAttribute("customer", new Customer());
         return "index";
     }
 	
 	@RequestMapping(value="/home", method=RequestMethod.POST)
-    public String save(Model model) {
-        return "index";
+    public String saveAll(@ModelAttribute Customer customer, Model model) {
+		model.addAttribute("customer", customer);
+//		personalDetailsRepository.save(customer.getPersonalDetails());
+//		contactDetailsRepository.save(customer.getContactDetails());
+//		accountDetailsRepository.save(customer.getAccountDetails());
+		System.out.println(customer.getPersonalDetails());
+		System.out.println(customer.getContactDetails());
+		System.out.println(customer.getAccountDetails());
+		return "index";
     }
 	
-	@RequestMapping(value="/personalInfoForm", method=RequestMethod.GET)
-    public String usererForm(Model model) {
+	@RequestMapping(value="/personalDetails", method=RequestMethod.GET)
+    public String getPersonalDetailsForm(Model model) {
         model.addAttribute("user", new PersonalDetails());
-        return "personalInfoForm";
+        return "personalDetails";
     }
 	
-	@RequestMapping(value="/contactdetails", method=RequestMethod.GET)
-    public String contactdetailserForm(Model model) {
-        model.addAttribute("contactdetails", new ContactDetails());
-        return "contactdetails";
+	@RequestMapping(value="/contactDetails", method=RequestMethod.GET)
+    public String getContactDetailsForm(Model model) {
+        model.addAttribute("contactDetails", new ContactDetails());
+        return "contactDetails";
     }
 	
-	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
+	@RequestMapping(value="/contactDetails", method=RequestMethod.POST)
     public String toContactDetails(Model model) {
-        return "contactdetails";
+        return "contactDetails";
     }
 	
-	@RequestMapping(value="/accountType", method=RequestMethod.GET)
-	public String accountTypeForm(Model model) {
-		model.addAttribute("accountType", new AccountDetails());
-		return "accountType";
+	@RequestMapping(value="/accountDetails", method=RequestMethod.GET)
+	public String getAccountDetailsForm(Model model) {
+		model.addAttribute("accountDetails", new AccountDetails());
+		return "accountDetails";
 	}
 	
-	@RequestMapping(value="/accountType", method=RequestMethod.POST)
-	public String toAccountType(Model model) {
-		return "accountType";
-	}
+	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
+    public String toAccountDetails(Model model) {
+		return "accountDetails";
+    }
  
 
 }

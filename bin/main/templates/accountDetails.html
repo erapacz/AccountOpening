@@ -3,6 +3,7 @@
 <title>Account Selection</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="/css/styles.css">
+<script type="text/javascript" src="/js/main.js"></script>
 </head>
 <body>
 	<div align="center">
@@ -36,11 +37,12 @@
 			<p><input id="motherMName" class="textbox" type="text" placeholder="Mother's Maiden Name" maxlength="20" onkeypress="return isAlphaKey(event)" required/></p>
 			<p><input class="btn btn-submit" type="submit" value="Add"/></p>
 			<p><a class="link" href="/accountType">Cancel</a></p>		
-		</form>
+		</form>		
+		
 	</div>
 	<div align="center">
 		<h1 class="header">Account Selection</h1>
-		<form action="/home" onsubmit ="saveData()" method="post">
+		<form action="/home" onsubmit ="saveAccountDetails()" method="post">
 			<p>
 				<input id="savings-account" type="radio" class="with-gap" name="account" value="SavingsAccount">
 				<span>Savings Account</span>
@@ -61,31 +63,5 @@
 			</p>
 		</form>
 	</div>
-	
-	
-	<script type="text/javascript">
-        /*
-        * Stores the account selection to the session.
-        */
-		function saveData() {
-
-        	if(document.getElementById('savings-account').checked) {
-        		sessionStorage.setItem("acc_type", "Savings Account");
-        	}
-        	else if(document.getElementById('checking-account').checked) {
-        		sessionStorage.setItem("acc_type", "Checking Account");
-        	}
-        	else if(document.getElementById('money-marketing-account').checked) {
-        		sessionStorage.setItem("acc_type", "Money Marketing Account");
-        	}
-        }
-        /*
-        * Display information for the nominee
-        */
-        function displayNominee() {
-       		document.getElementById("nominee-section").style.display="block";
-        	document.getElementById("add-nominee").style.display="none";
-        }
-	</script>
 </body>
 </html>

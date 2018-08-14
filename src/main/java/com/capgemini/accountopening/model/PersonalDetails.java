@@ -107,9 +107,14 @@ public class PersonalDetails {
 	public void setMotherMName(String motherMName) {
 		this.motherMName = motherMName;
 	}
-	
+
+	@Override
 	public String toString() {
-		return(this.firstName+" "+this.lastName+"\n"+this.ssn+" "+this.dob+"\n"+this.motherMName);
+		return "PersonalDetails [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", middleName="
+				+ middleName + ", suffix=" + suffix + ", ssn=" + ssn + ", dob=" + dob + ", motherMName=" + motherMName
+				+ "]";
 	}
+	
+
 	
 }
