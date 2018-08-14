@@ -65,7 +65,7 @@ public class WebController {
 	
 	@RequestMapping(value="/nominee_personal", method=RequestMethod.POST)
 	public String toNomineePersonal(Model model) {
-		return "accountType";
+		return "nominee_personal";
 	}
 
 }
