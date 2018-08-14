@@ -1,7 +1,5 @@
 package com.capgemini.accountopening.model;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -20,31 +17,31 @@ public class AccountDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="acc_number")
-	private Long acc_number;
+	private Long accNumber;
 	
 	@Column(name="customer_id")
-	private Long customer_id;
+	private Long customerId;
 	
 	@Column(name="balance")
 	private int balance;
 	
 	@Column(name="acc_type")
-	private String acc_type;
+	private String accType;
 	
-	public Long getAcc_Number() {
-		return acc_number;
+	public Long getAccNumber() {
+		return accNumber;
 	}
 
-	public void setAcc_Number(Long acc_number) {
-		this.acc_number = acc_number;
+	public void setAccNumber(Long accNumber) {
+		this.accNumber = accNumber;
 	}
 
-	public Long getCustomer_Id() {
-		return customer_id;
+	public Long getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustomer_id(Long customer_id) {
-		this.customer_id = customer_id;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public int getBalance() {
@@ -55,12 +52,20 @@ public class AccountDetails {
 		this.balance = balance;
 	}
 
-	public String getAcc_Type() {
-		return acc_type;
+	public String getAccType() {
+		return accType;
 	}
 
-	public void setAcc_Type(String acc_type) {
-		this.acc_type = acc_type;
+	public void setAccType(String accType) {
+		this.accType = accType;
 	}
+
+	@Override
+	public String toString() {
+		return "AccountDetails [accNumber=" + accNumber + ", customerId=" + customerId + ", balance=" + balance
+				+ ", accType=" + accType + "]";
+	}
+	
+	
 
 }
