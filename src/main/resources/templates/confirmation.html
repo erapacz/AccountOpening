@@ -1,26 +1,43 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Contact Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/styles.css">
+<script type="text/javascript" src="/js/main.js"></script>
+</head>
 <body>
-<h2>Congratulations</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<div align="center">
+		<h1 class="header">Confirmation</h1>
+		<form action="/confirmation" method="post">
+		<h2>An Account has been created!</h2>
+<br>
+<br>
+<br>
+<br>
+		<h2>
+			Your account number is: <span id="account_number"></span>
+		</h2>
+		<h3>For online account <a href="https://www.discover.com/online-banking/">Click here</a> </h3>
+		<p>
+			<!-- <button type="okay" value="okay">submit</button>  -->
+			<input type="button" value="Close this window" onclick="windowClose();">
+			<!-- <input type="button" value="Close this window" onclick="self.close()"> -->
+		</p>
 
-<h2>Your account number is: <span id="account_number"></span></h2>
-
-
-
-
-<h2>Click on the link for online account </h2>
-<a href="https://www.discover.com/online-banking/">New Account</a>
-<p>
-
-
-<button type="submit" value="submit">submit</button>
-
-</p>
-
-<script type="text/javascript"> 
-document.getElementById("account_number").innerHTML = sessionStorage.getItem("acc_num");
-
-</script>
-
-
-</body>
+	<!-- 	<script type="text/javascript">
+			document.getElementById("account_number").innerHTML = sessionStorage
+					.getItem("acc_num");
+		</script> -->
+		
+		</form>
+		</div>
+	</body>
 </html>

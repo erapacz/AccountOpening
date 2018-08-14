@@ -71,6 +71,7 @@ function isAlphaKey(evt) {
     var charCode = (evt.which) ? evt.which : event.keyCode;
     if (!((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) ||charCode == 08))
         return false;
+    
     return true;
 }
 
