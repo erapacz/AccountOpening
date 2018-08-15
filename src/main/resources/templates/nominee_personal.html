@@ -3,6 +3,7 @@
 	<title>Power Of Attorney Details</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="/css/styles.css">
+	<script type="text/javascript" src="/js/main.js"></script>
 </head>
 <body>
 	<div align="center">
@@ -23,9 +24,9 @@
 			</select></p>
 			<div id="ssn" class="ssn">
 				<label class="text">SSN </label>
-				<input id="ssn1" name="ssn1" class="ssn" type="password" pattern=".{3,}" placeholder="XXX" maxlength="3" onKeyup="autotab(this, document.personalInfo.ssn2)" onkeypress="return isNumberKey(event)" required/>
+				<input id="ssn1" name="ssn1" class="ssn" type="password" pattern=".{3,}" placeholder="XXX" maxlength="3" onKeyup="autotab(this, document.nomineeInfo.ssn2)" onkeypress="return isNumberKey(event)" required/>
 				<label> - </label>
-				<input id="ssn2" name="ssn2" class="ssn" type="password" pattern=".{2,}" placeholder="XX" maxlength="2" onKeyup="autotab(this, document.personalInfo.ssn3)" onkeypress="return isNumberKey(event)" required/>
+				<input id="ssn2" name="ssn2" class="ssn" type="password" pattern=".{2,}" placeholder="XX" maxlength="2" onKeyup="autotab(this, document.nomineeInfo.ssn3)" onkeypress="return isNumberKey(event)" required/>
 				<label> - </label>
 				<input id="ssn3" name="ssn3" class="ssn" type="password" pattern=".{4,}" placeholder="XXXX" maxlength="4" onkeypress="return isNumberKey(event)" required/>
 			</div>
@@ -36,51 +37,8 @@
         </form>
         
         <script type="text/javascript">
-        	function saveData() {
-           		var firstName = document.getElementById("firstName");
-        		sessionStorage.setItem("firstName", firstName.value);
-        		
-        		var middleName = document.getElementById("middleName");
-        		sessionStorage.setItem("middleName", middleName.value);
-        		
-        		var lastName = document.getElementById("lastName");
-        		sessionStorage.setItem("lastName", lastName.value);
-        		
-        		var suffix = document.getElementById("suffix");
-        		sessionStorage.setItem("suffix", suffix.value);
-        		
-        		var ssn1 = document.getElementById("ssn1");
-        		var ssn2 = document.getElementById("ssn2");
-        		var ssn3 = document.getElementById("ssn3");
-        		sessionStorage.setItem("ssn", ssn1.value+ssn2.value+ssn3.value);
-        		
-        		var dob = document.getElementById("dob");
-        		sessionStorage.setItem("dob", dob.value);
-        		
-        		var motherMName = document.getElementById("motherMName");
-        		sessionStorage.setItem("motherMName", motherMName.value);
-        		
-        	}
         	
-        	function autotab(current,to) {
-        		if(current.getAttribute && current.value.length==current.getAttribute("maxlength")) {
-        			to.focus()
-        		}
-        	}
-        	
-        	function isNumberKey(evt) {
-        	    var charCode = (evt.which) ? evt.which : event.keyCode;
-        	    if ((charCode < 48 || charCode > 57))
-        	        return false;
-        	    return true;
-        	}
-        	
-        	function isAlphaKey(evt) {
-        	    var charCode = (evt.which) ? evt.which : event.keyCode;
-        	    if (!((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) ||charCode == 08))
-        	        return false;
-        	    return true;
-        	}
+
         	
         </script>
         

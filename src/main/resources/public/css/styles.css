@@ -23,6 +23,35 @@
 	width: 350px;
 	height: 50px;
 	padding-left: 20;
+
+}
+
+.checkbox {
+	transform: scale(1.5);
+}
+
+.info-bank {
+	display: none;
+}
+
+.info-check {
+	border: solid;
+	border-width: 1px;
+	padding: 10 0 10 0;
+	width: 500;
+	display: none;
+}
+
+.option {
+	font-family: 'Francois One', sans-serif;
+	font-size: 20;
+	font-weight: bolder;
+}
+
+label {
+	font-family: 'Francois One', sans-serif;
+	font-size: 20;
+	font-weight: bolder;
 }
 
 /* #error-box
