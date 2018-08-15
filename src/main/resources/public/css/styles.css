@@ -68,7 +68,6 @@ body {
 
 .btn-submit {
 	background: #ff6600;
-	width: 120px;
 }
 
 .btn-reset {
@@ -95,7 +94,7 @@ body {
 
 .btn {
 	border: none;
-	padding: 10px 30px;
+	padding: 10px 30px 10px 30px;
 	color: white;
 	text-align: center;
 	text-decoration: none;
