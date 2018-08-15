@@ -1,19 +1,16 @@
 
-
 //AccountDetails
 function displayNominee() {
-	
-    var checkBox = document.getElementById("nominee-checkbox");
-    var form = document.getElementById("nominee-section");
-    if (checkBox.checked == true){
-        form.style.display = "block";
-    } else {
-    	form.style.display = "none";
-    }
-	
-	//document.getElementById("nominee-section").style.display="block";
-	//document.getElementById("add-nominee").style.display="none";
+   var x = document.getElementById("nominee-section");
+   if(x.style.display === "none") {
+         x.style.display="block";
+         document.getElementById("nomineeButton").setAttribute("value","Cancel");
+   } else {
+         x.style.display="none";
+         document.getElementById("nomineeButton").setAttribute("value","Add Nominee");
+   }      
 }
+
 
 function saveAccountDetails() {
 	if(document.getElementById('savings-account').checked) {
