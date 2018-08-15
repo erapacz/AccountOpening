@@ -30,64 +30,7 @@ public class WebController {
 	
 	@Autowired
 	private AccountDetailsRepository accountDetailsRepository;
-	
-	@RequestMapping(value="/home", method=RequestMethod.GET)
-    public String home(Model model) {
-		model.addAttribute("customer", new Customer());
-        return "index";
-    }
-	
-	@RequestMapping(value="/home", method=RequestMethod.POST)
-    public String saveAll(@ModelAttribute Customer customer, Model model) {
-		model.addAttribute("customer", customer);
-//		personalDetailsRepository.save(customer.getPersonalDetails());
-//		contactDetailsRepository.save(customer.getContactDetails());
-//		accountDetailsRepository.save(customer.getAccountDetails());
-		System.out.println(customer.getPersonalDetails());
-		System.out.println(customer.getContactDetails());
-		System.out.println(customer.getAccountDetails());
-		return "index";
-    }
-	
-	@RequestMapping(value="/personalDetails", method=RequestMethod.GET)
-    public String getPersonalDetailsForm(Model model) {
-        model.addAttribute("user", new PersonalDetails());
-        return "personalDetails";
-    }
-	
-	@RequestMapping(value="/contactDetails", method=RequestMethod.GET)
-    public String getContactDetailsForm(Model model) {
-        model.addAttribute("contactDetails", new ContactDetails());
-        return "contactDetails";
-    }
-	
-	@RequestMapping(value="/contactDetails", method=RequestMethod.POST)
-    public String toContactDetails(Model model) {
-        return "contactDetails";
-    }
-	
-	@RequestMapping(value="/accountDetails", method=RequestMethod.GET)
-	public String getAccountDetailsForm(Model model) {
-		model.addAttribute("accountDetails", new AccountDetails());
-		return "accountDetails";
-	}
-	
-	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
-    public String toAccountDetails(Model model) {
-		return "accountDetails";
-    }
- 
-	@RequestMapping(value="/nominee_personal", method=RequestMethod.GET)
-    public String NomineeerForm(Model model) {
-        model.addAttribute("nominee", new Nominee());
-        return "nominee_personal";
-    }
-	
-	@RequestMapping(value="/nominee_personal", method=RequestMethod.POST)
-	public String toNomineePersonal(Model model) {
-		return "nominee_personal";
-	}
-	
+		
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
     public String confimationForm(Model model) {
         model.addAttribute("nominee", new Nominee());
