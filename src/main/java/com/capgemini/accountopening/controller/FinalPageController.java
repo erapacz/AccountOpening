@@ -20,7 +20,7 @@ import com.capgemini.accountopening.repository.ContactDetailsRepository;
 import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
-public class WebController {
+public class FinalPageController {
 	
 	@Autowired
 	private PersonalDetailsRepository personalDetailsRepository;
@@ -31,15 +31,14 @@ public class WebController {
 	@Autowired
 	private AccountDetailsRepository accountDetailsRepository;
 		
-	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
+	@RequestMapping(value="/final", method=RequestMethod.GET)
     public String confimationForm(Model model) {
-        model.addAttribute("nominee", new Nominee());
-        return "confirmation";
+        return "final";
     }
 	
-	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
+	@RequestMapping(value="/final", method=RequestMethod.POST)
 	public String toConfimation(Model model) {
-		return "confirmation";
+		return "final";
 	}
 
 }

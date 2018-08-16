@@ -6,38 +6,46 @@
 <script type="text/javascript" src="/js/main.js"></script>
 </head>
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+	<br>
+	<br>
 	<div align="center">
 		<h1 class="header">Confirmation</h1>
-		<form action="/confirmation" method="post">
-		<h2>An Account has been created!</h2>
-<br>
-<br>
-<br>
-<br>
-		<h2>
-			Your account number is: <span id="account_number"></span>
-		</h2>
-		<h3>For online account <a href="https://www.discover.com/online-banking/">Click here</a> </h3>
-		<p>
-			<!-- <button type="okay" value="okay">submit</button>  -->
-			<input type="button" value="Close this window" onclick="windowClose();">
-			<!-- <input type="button" value="Close this window" onclick="self.close()"> -->
-		</p>
 
-	<!-- 	<script type="text/javascript">
-			document.getElementById("account_number").innerHTML = sessionStorage
-					.getItem("acc_num");
-		</script> -->
-		
+
+		<form name="confirmation" action="/final"
+			onsubmit="saveConfirmation()" method="post">
+
+			<h2>An Account has been created!</h2>
+			<br>
+
+<!-- test -->
+			<h2>
+				Your account number is: <span id="account_number"></span>
+			</h2>
+			<h3>
+				For online account <a
+					href="https://www.discover.com/online-banking/">Click here</a>
+			</h3>
+
+
+
+
+
+
+			<p>
+				<input id="continue" class="btn btn-submit" type="submit"
+					value="Finish" />
+			</p>
+
+
+			<script type="text/javascript">
+				document.getElementById("account_number").innerHTML = sessionStorage
+						.getItem("acc_num");
+			</script>
+
 		</form>
-		</div>
-	</body>
+	</div>
+
+</body>
 </html>
