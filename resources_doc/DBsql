@@ -1,0 +1,60 @@
+create database account_opening;
+use account_opening;
+
+create table c_personal(
+	customer_id int(255) not null auto_increment,
+	fname varchar(255) not null,
+	lname varchar(255) not null,
+	mname varchar(255),
+	suffix varchar(8),
+	ssn int(255) not null,
+	dob date not null,
+	maiden varchar(255) not null,
+	primary key (customer_id));
+	
+	alter table c_personal auto_increment=1000000000;
+
+create table c_account(
+	acc_id int(255) not null auto_increment,
+	acc_number int(255) not null,
+	customer_id int(255) not null,
+	balance int(255) not null,
+	acc_type varchar(255) not null,
+	primary key (acc_id),
+	foreign key (customer_id) references c_personal(customer_id));
+	
+create table c_address(
+		address_id int(255) not null auto_increment,
+		customer_id int(255) not null,
+		address1 varchar(255) not null,
+		address2 varchar(255),
+		city varchar(255) not null,
+		state varchar(8) not null,
+		postal int(255) not null,
+		country varchar(255) not null,
+		phone varchar(255) not null,
+		email varchar(255) not null,
+		primary key (address_id),
+		foreign key (customer_id) references c_personal(customer_id));
+		
+		
+create table nominee_personal(
+	nominee_id int(255) not null auto_increment,
+	customer_id int(255) not null,
+	fname varchar(255) not null,
+	lname varchar(255) not null,
+	mname varchar(255),
+	suffix varchar(8),
+	ssn int(255) not null,
+	dob date not null,
+	maiden varchar(255) not null,
+	primary key (nominee_id),
+	foreign key (customer_id) references c_personal(customer_id));
+	
+create user 'user2'@'%' identified by 'admin2';
+
+grant all privileges on account_opening.* to 'user2@'%';	
+	
+		
+		
+	
