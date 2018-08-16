@@ -112,6 +112,10 @@
 	display: none;
 }
 
+.amtWarning {
+	display: none;
+}
+
 .option {
 	font-family: 'Francois One', sans-serif;
 	font-size: 20;

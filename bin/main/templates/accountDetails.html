@@ -13,14 +13,11 @@
 		<form name="accountForm" action="/confirmation" onsubmit="saveAccountDetails()"
 			method="post">
 			<p>
-				<select id="account" class="textbox">
+				<select id="account" class="textbox" onchange="minBalSelect(this.options[this.selectedIndex].value)">
 					<option class="option" value="" style="display: none;">Account Type</option>
-					<option class="option" id="savings-account" value="Savings Account">Savings
-						Account</option>
-					<option class="option" id="checking-account" value="Checking Account">Checking
-						Account</option>
-					<option class="option" id="money-market-account" value="Money Market Account">Money
-						Market Account</option>
+					<option class="option" id="savings-account" value="Savings Account">Savings Account</option>
+					<option class="option" id="checking-account" value="Checking Account">Checking Account</option>
+					<option class="option" id="money-market-account" value="Money Market Account">Money Market Account</option>
 				</select>
 			</p>
 			<p>
@@ -29,6 +26,9 @@
 					<option class="option" id="bank-option" value="Online Transfer">Online Transfer</option>
 					<option class="option" id="check-option" value="Check">Check</option>
 				</select>
+			</p>
+			<p id="amtWarning" class="amtWarning">
+				<label style="color: red; font-size: 12;">You must deposit a minimum amount of $50 for a Checking Account.</label>
 			</p>
 			<p>
 				<input id="depositAmt" class="textbox" type="text"  placeholder="Deposit Amount" maxlength="20" />
@@ -40,7 +40,7 @@
 			</p>
 			<p class="info-check" id="check">
 				<label>
-					Please make a check out to "ABC Bank".
+					Please make a check out to "ROCKSTAR Bank".
 					<br />
 					Address: 123 Market St. Chicago, IL 60642
 				</label>

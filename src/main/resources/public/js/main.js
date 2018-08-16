@@ -46,6 +46,14 @@ function accountSelect(select) {
 	}
 }
 
+function minBalSelect(select) {
+	if(select == "Checking Account") {
+		document.getElementById("amtWarning").style.display = "block";
+	} else {
+		document.getElementById("amtWarning").style.display = "none";
+	}
+}
+
 function saveAccountDetails() {
 	sessionStorage.setItem("accType", document.getElementById("account").value);
 }
