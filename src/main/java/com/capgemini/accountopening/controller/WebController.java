@@ -80,12 +80,12 @@ public class WebController {
 	@RequestMapping(value="/nomineeDetails", method=RequestMethod.GET)
     public String NomineeerForm(Model model) {
         model.addAttribute("nominee", new Nominee());
-        return "nominee_personal";
+        return "nomineeDetails";
     }
 	
 	@RequestMapping(value="/nomineeDetails", method=RequestMethod.POST)
 	public String toNomineePersonal(Model model) {
-		return "nominee_personal";
+		return "nomineeDetails";
 	}
 	
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
