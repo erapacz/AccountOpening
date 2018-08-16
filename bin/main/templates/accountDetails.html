@@ -9,86 +9,55 @@
 	<div align="center">
 		<h1 class="header">Account Information</h1>
 	</div>
-	<div id="nominee-section" align="center" style="display: none;">
-		<form action="/accountDetails" onsubmit="saveNomineeInfo()"
-			method="post">
-			<p>
-				<input id="firstName" class="textbox" type="text"
-					placeholder="First Name" maxlength="20"
-					onkeypress="return isAlphaKey(event)" autofocus />
-			</p>
-			<p>
-				<input id="middleName" class="textbox" type="text"
-					placeholder="Middle Name (Optional)" maxlength="20"
-					onkeypress="return isAlphaKey(event)" />
-			</p>
-			<p>
-				<input id="lastName" class="textbox" type="text"
-					placeholder="Last Name" maxlength="20"
-					onkeypress="return isAlphaKey(event)" />
-			</p>
-			<p>
-				<select id="suffix" class="textbox">
-					<option value="" style="display: none;">Suffix (Optional)</option>
-					<option value="">None</option>
-					<option value="JR">Jr.</option>
-					<option value="SR">Sr.</option>
-					<option value="II">II</option>
-					<option value="III">III</option>
-					<option value="IV">IV</option>
-					<option value="V">V</option>
-				</select>
-			</p>
-			<div id="ssn" class="ssn">
-				<label class="text">SSN </label> <input id="ssn1" name="ssn1"
-					class="ssn" type="password" pattern=".{3,}" placeholder="XXX"
-					maxlength="3" onKeyup="autotab(this, document.personalInfo.ssn2)"
-					onkeypress="return isNumberKey(event)" /> <label> - </label> <input
-					id="ssn2" name="ssn2" class="ssn" type="password" pattern=".{2,}"
-					placeholder="XX" maxlength="2"
-					onKeyup="autotab(this, document.personalInfo.ssn3)"
-					onkeypress="return isNumberKey(event)" /> <label> - </label> <input
-					id="ssn3" name="ssn3" class="ssn" type="password" pattern=".{4,}"
-					placeholder="XXXX" maxlength="4"
-					onkeypress="return isNumberKey(event)" />
-			</div>
-			<p>
-				<input id="dob" class="textbox" type="date" placeholder="DOB" />
-			</p>
-			<p>
-				<input id="motherMName" class="textbox" type="text"
-					placeholder="Mother's Maiden Name" maxlength="20"
-					onkeypress="return isAlphaKey(event)" />
-			</p>
-			<p>
-				<input class="btn btn-submit" type="submit" value="Add" />
-			</p>
-		</form>
-	</div>
 	<div align="center">
-		<input id="nomineeButton" onclick="displayNominee()" type="button"
-			class="btn btn-submit" value="Add Nominee" />
-		<form action="/confirmation" onsubmit="saveAccountDetails()"
+		<form name="accountForm" action="/confirmation" onsubmit="saveAccountDetails()"
 			method="post">
 			<p>
-				<select id="account" class="textbox">
-					<option value="" style="display: none;">Account Type</option>
-					<option id="savings-account" value="Savings Account">Savings
-						Account</option>
-					<option id="checking-account" value="Checking Account">Checking
-						Account</option>
-					<option id="money-market-account" value="Money Market Account">Money
-						Market Account</option>
+				<select id="account" class="textbox" onchange="minBalSelect(this.options[this.selectedIndex].value)">
+					<option class="option" value="" style="display: none;">Account Type</option>
+					<option class="option" id="savings-account" value="Savings Account">Savings Account</option>
+					<option class="option" id="checking-account" value="Checking Account">Checking Account</option>
+					<option class="option" id="money-market-account" value="Money Market Account">Money Market Account</option>
 				</select>
 			</p>
-
 			<p>
-				<input id="Continue" class="btn btn-submit" type="submit"
-					value="Finish" />
+				<select id="deposit" class="textbox" onchange="accountSelect(this.options[this.selectedIndex].value)" >
+					<option class="option" value="" style="display: none;">Deposit Type</option>
+					<option class="option" id="bank-option" value="Online Transfer">Online Transfer</option>
+					<option class="option" id="check-option" value="Check">Check</option>
+				</select>
+			</p>
+			<p id="amtWarning" class="amtWarning">
+				<label style="color: red; font-size: 12;">You must deposit a minimum amount of $50 for a Checking Account.</label>
 			</p>
 			<p>
-				<a class="link" href="/home">Cancel</a>
+				<input id="depositAmt" class="textbox" type="text"  placeholder="Deposit Amount" maxlength="20" />
 			</p>
+			<p class="info-bank" id="bank">
+				<input id="routingNum" class="textbox" type="text"  placeholder="Routing Number" maxlength="9" />
+				<br /><br />
+				<input id="accountNum" class="textbox" type="text"  placeholder="Account Number" maxlength="20" />
+			</p>
+			<p class="info-check" id="check">
+				<label>
+					Please make a check out to "ROCKSTAR Bank".
+					<br />
+					Address: 123 Market St. Chicago, IL 60642
+				</label>
+			</p>
+			<p>
+				<label>Add Nominee? </label>
+				<input id="nominee-checkbox" class="checkbox" onclick="displayNominee()" type="checkbox"/>
+			</p>
+			<p>
+				<a href="/contactDetails">
+					<button id="back" class="btn btn-back" type="button">Back</button>
+				</a>
+			
+				<input id="continue" class="btn btn-submit" type="submit"
+					value="Submit" />
+			</p>
+			<p><a class="link" onclick="return confirm('Are you sure you would like to cancel? All data will be lost.')" href="/home">Cancel</a></p>
 		</form>
 	</div>
 </body>

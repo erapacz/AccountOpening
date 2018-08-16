@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Power Of Attorney Details</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="/css/styles.css">
+	<script type="text/javascript" src="/js/main.js"></script>
+</head>
+<body>
+	<div align="center">
+        <h1 class="header">Power Of Attorney Details</h1>
+        <form action="/confirmation" name="nomineeInfo" onsubmit="saveData()" method="post">
+			<p><input id="firstName" class="textbox" type="text"  placeholder="First Name" maxlength="20" onkeypress="return isAlphaKey(event)" required autofocus/></p>
+			<p><input id="middleName" class="textbox" type="text" placeholder="Middle Name (Optional)" maxlength="20" onkeypress="return isAlphaKey(event)"/></p>
+			<p><input id="lastName" class="textbox" type="text" placeholder="Last Name" maxlength="20" onkeypress="return isAlphaKey(event)" required/></p>
+			<p><select id="suffix" class="textbox">
+		    	<option value="" style="display: none;">Suffix (Optional)</option>
+				<option value="">None</option>
+				<option value="JR">Jr.</option>
+				<option value="SR">Sr.</option>
+				<option value="II">II</option>
+				<option value="III">III</option>
+				<option value="IV">IV</option>
+				<option value="V">V</option>
+			</select></p>
+			<div id="ssn" class="ssn">
+				<label class="text">SSN </label>
+				<input id="ssn1" name="ssn1" class="ssn" type="password" pattern=".{3,}" placeholder="XXX" maxlength="3" onKeyup="autotab(this, document.nomineeInfo.ssn2)" onkeypress="return isNumberKey(event)" required/>
+				<label> - </label>
+				<input id="ssn2" name="ssn2" class="ssn" type="password" pattern=".{2,}" placeholder="XX" maxlength="2" onKeyup="autotab(this, document.nomineeInfo.ssn3)" onkeypress="return isNumberKey(event)" required/>
+				<label> - </label>
+				<input id="ssn3" name="ssn3" class="ssn" type="password" pattern=".{4,}" placeholder="XXXX" maxlength="4" onkeypress="return isNumberKey(event)" required/>
+			</div>
+			<p><input id="dob" class="textbox" type="date" max="9999-12-31" placeholder="DOB" required/></p>
+			<p><input id="motherMName" class="textbox" type="text" placeholder="Mother's Maiden Name" maxlength="20" onkeypress="return isAlphaKey(event)" required/></p>
+			<p>
+				<a href="/accountDetails">
+					<button id="back" class="btn btn-back" type="button">Back</button>
+				</a>
+				
+				<input class="btn btn-submit" type="submit" value="Submit"/>
+			</p>
+        </form>        
+    </div>
+</body>
+</html>

@@ -34,11 +34,13 @@
 				<input id = "email" class="textbox" type="email" placeholder="Email" required />
 			</p>
 			<p>
+				<a href="/personalDetails">
+					<button id="back" class="btn btn-back" type="button">Back</button>
+				</a>
+			
 				<input id = "continue" class="btn btn-submit" type="submit" value="Continue" />
 			</p>
-			<p>
-				<a class="link" href="/home">Cancel</a>
-			</p>
+			<p><a class="link" onclick="return confirm('Are you sure you would like to cancel? All data will be lost.')" href="/home">Cancel</a></p>
 		</form>        
 	</div>
 </body>

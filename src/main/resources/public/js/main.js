@@ -1,27 +1,61 @@
+//NomineeDetails
+function saveNomineeDetails() {
+	var firstName = document.getElementById("firstName");
+	sessionStorage.setItem("firstName", firstName.value);
+	
+	var middleName = document.getElementById("middleName");
+	sessionStorage.setItem("middleName", middleName.value);
+	
+	var lastName = document.getElementById("lastName");
+	sessionStorage.setItem("lastName", lastName.value);
+	
+	var suffix = document.getElementById("suffix");
+	sessionStorage.setItem("suffix", suffix.value);
+	
+	var ssn1 = document.getElementById("ssn1");
+	var ssn2 = document.getElementById("ssn2");
+	var ssn3 = document.getElementById("ssn3");
+	sessionStorage.setItem("ssn", ssn1.value+ssn2.value+ssn3.value);
+	
+	var dob = document.getElementById("dob");
+	sessionStorage.setItem("dob", dob.value);
+	
+	var motherMName = document.getElementById("motherMName");
+	sessionStorage.setItem("motherMName", motherMName.value);
+}
 
 //AccountDetails
 function displayNominee() {
-   var x = document.getElementById("nominee-section");
-   if(x.style.display === "none") {
-         x.style.display="block";
-         document.getElementById("nomineeButton").setAttribute("value","Cancel");
+   var x = document.getElementById("nominee-checkbox");
+   if(x.checked) {
+         document.getElementById("continue").setAttribute("value","Add Nominee");
+         document.accountForm.action = "/nomineeDetails";
    } else {
-         x.style.display="none";
-         document.getElementById("nomineeButton").setAttribute("value","Add Nominee");
+         document.getElementById("continue").setAttribute("value","Submit");
+         document.accountForm.action = "/confirmation";
    }      
 }
 
+function accountSelect(select) {
+	if(select == "Online Transfer") {
+		document.getElementById("bank").style.display = "block";
+		document.getElementById("check").style.display = "none";
+	} else {
+		document.getElementById("check").style.display = "block";
+		document.getElementById("bank").style.display = "none";
+	}
+}
+
+function minBalSelect(select) {
+	if(select == "Checking Account") {
+		document.getElementById("amtWarning").style.display = "block";
+	} else {
+		document.getElementById("amtWarning").style.display = "none";
+	}
+}
 
 function saveAccountDetails() {
-	if(document.getElementById('savings-account').checked) {
-		sessionStorage.setItem("accType", "Savings Account");
-	}
-	else if(document.getElementById('checking-account').checked) {
-		sessionStorage.setItem("accType", "Checking Account");
-	}
-	else if(document.getElementById('money-marketing-account').checked) {
-		sessionStorage.setItem("accType", "Money Marketing Account");
-	}
+	sessionStorage.setItem("accType", document.getElementById("account").value);
 }
 
 //PersonalInfo
