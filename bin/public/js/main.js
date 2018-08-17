@@ -76,7 +76,6 @@ function generateAccountNum(accType) {
 	var body = Math.floor(Math.random() * 10000000);
 	var body2 = Math.floor(Math.random() * 1000000);
 	accNum = prefix + body + body2;
-	//var finalDigit = getCurrentCustomerId();
 	sessionStorage.setItem("accNum", accNum);
 }
 
@@ -86,7 +85,6 @@ function showAccountNum() {
 	document.getElementById("account_number").innerHTML = accNum;
 	
 }
-
 
 //PersonalInfo
 function savePersonalDetails() {
