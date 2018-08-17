@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.ContactDetails;
 
-import com.capgemini.accountopening.model.Nominee;
+import com.capgemini.accountopening.model.NomineeDetails;
 
 import com.capgemini.accountopening.model.Customer;
 
