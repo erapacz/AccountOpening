@@ -21,15 +21,6 @@ import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class FinalPageController {
-	
-	@Autowired
-	private PersonalDetailsRepository personalDetailsRepository;
-	
-	@Autowired
-	private ContactDetailsRepository contactDetailsRepository;
-	
-	@Autowired
-	private AccountDetailsRepository accountDetailsRepository;
 		
 	@RequestMapping(value="/final", method=RequestMethod.GET)
     public String confimationForm(Model model) {
