@@ -21,15 +21,6 @@ import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class ConfirmationPageController {
-	
-	@Autowired
-	private PersonalDetailsRepository personalDetailsRepository;
-	
-	@Autowired
-	private ContactDetailsRepository contactDetailsRepository;
-	
-	@Autowired
-	private AccountDetailsRepository accountDetailsRepository;
 		
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
     public String confimationForm(Model model) {
