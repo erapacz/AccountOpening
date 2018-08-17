@@ -128,6 +128,7 @@ function saveContactDetails() {
 	
 	var phone = document.getElementById("phone");
 	sessionStorage.setItem("phone", phone.value);
+	alert(numbers.length);
 		
 	var email = document.getElementById("email");
 	sessionStorage.setItem("email", email.value);

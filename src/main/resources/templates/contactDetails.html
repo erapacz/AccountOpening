@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/css/styles.css">
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/phone.js"></script>
 </head>
 <body>
 	<div align="center">
@@ -62,14 +63,17 @@
 	</div>
 	<script type="text/javascript">
 		$('#phone').keyup(function(e) {
-      var numbers = this.value.replace(/\D/g, '');
-    // alert(numbers.length);
-        var specialChar = { 3: '-', 6: '-'};
-          this.value = '';
-          for (var i = 0; i < numbers.length; i++) {
-              this.value += (specialChar[i] || '') + numbers[i];}})
-      
-      		
-		</script>
+			var numbers = this.value.replace(/\D/g, '');
+			// alert(numbers.length);
+			var specialChar = {
+				3 : '-',
+				6 : '-'
+			};
+			this.value = '';
+			for (var i = 0; i < numbers.length; i++) {
+				this.value += (specialChar[i] || '') + numbers[i];
+			}
+		})
+	</script>
 </body>
 </html>
