@@ -2,27 +2,27 @@ package com.capgemini.accountopening.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.capgemini.accountopening.model.ContactDetails;
-import com.capgemini.accountopening.repository.ContactDetailsRepository;
+import com.capgemini.accountopening.service.ContactDetailsService;
 
 @Controller
 public class ContactDetailsController {
 
 	@Autowired
-	private ContactDetailsRepository contactDetailsRepository;
+	private ContactDetailsService contactDetailsService;
 	
-	@RequestMapping(value="/contactDetails", method=RequestMethod.GET)
-    public String getContactDetailsForm(Model model) {
-        model.addAttribute("contactDetails", new ContactDetails());
-        return "contactDetails";
+	@RequestMapping(value = "/contactDetails", method = RequestMethod.GET)
+    public String getContactDetailsForm() {
+		return "contactDetails";
     }
 	
 	@RequestMapping(value="/contactDetails", method=RequestMethod.POST)
-    public String toContactDetails(Model model) {
-        return "contactDetails";
+    public @ResponseBody ContactDetails test(ContactDetails contactDetails){
+		contactDetailsService.saveContactDetails(contactDetails);
+        return contactDetails;
     }
 }
