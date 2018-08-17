@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.ContactDetails;
 
-import com.capgemini.accountopening.model.Nominee;
+import com.capgemini.accountopening.model.NomineeDetails;
 
 import com.capgemini.accountopening.model.Customer;
 
@@ -21,15 +21,6 @@ import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class ConfirmationPageController {
-	
-	@Autowired
-	private PersonalDetailsRepository personalDetailsRepository;
-	
-	@Autowired
-	private ContactDetailsRepository contactDetailsRepository;
-	
-	@Autowired
-	private AccountDetailsRepository accountDetailsRepository;
 		
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
     public String confimationForm(Model model) {

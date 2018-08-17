@@ -3,47 +3,120 @@
 <title>Contact Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="/css/styles.css">
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/phone.js"></script>
 </head>
 <body>
 	<div align="center">
 		<h1 class="header">Contact Details</h1>
+<<<<<<< HEAD
 		<form id="form" action="/contactDetails" method="post">
+=======
+		<form action="/accountDetails" onsubmit="saveContactDetails()"
+			method="post">
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			<p>
+<<<<<<< HEAD
 				<input id="address1" name = "address1" class="textbox" type="text" placeholder="Address1" required />
+=======
+				<input id="address1" class="textbox" type="text"
+					placeholder="Address1" required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="address2" name="address2" class="textbox" type="text" placeholder="Address2 (Optional)" />
+=======
+				<input id="address2" class="textbox" type="text"
+					placeholder="Address2 (Optional)" />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="city" name="city" class="textbox" type="text" placeholder="City" onkeypress="return isAlphaKey(event)" required />
+=======
+				<input id="city" class="textbox" type="text" placeholder="City"
+					onkeypress="return isAlphaKey(event)" required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="state" name="state" class="textbox" type="text" placeholder="State" onkeypress="return isAlphaKey(event)" required />
+=======
+				<input id="state" class="textbox" type="text" placeholder="State"
+					onkeypress="return isAlphaKey(event)" required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="postal" name="postal" class="textbox" type="text" title="Five digit zip code" placeholder="Postal" maxlength="5" onkeypress="return isNumberKey(event)" required />
+=======
+				<input id="postal" class="textbox" type="text"
+					title="Five digit zip code" placeholder="Postal" maxlength="5"
+					onkeypress="return isNumberKey(event)" required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="country" name="country" class="textbox" type="text" placeholder="Country" onkeypress="return isAlphaKey(event)" required />
+=======
+				<input id="country" class="textbox" type="text"
+					placeholder="Country" onkeypress="return isAlphaKey(event)"
+					required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="phone" name="phone" class="textbox" type="tel" placeholder="Phone (XXX-XXX-XXXX)" maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title='Phone Number (Format: 999-999-9999)' required/>
+=======
+				<input id="phone" class="textbox" type="tel"
+					placeholder="Phone (XXX-XXX-XXXX)" maxlength="12"
+					pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+					title='Phone Number (Format: 999-999-9999)' required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
+<<<<<<< HEAD
 				<input id="email" name="email" class="textbox" type="email" placeholder="Email" required />
+=======
+				<input id="email" class="textbox" type="email" placeholder="Email"
+					required />
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 			</p>
 			<p>
 				<a href="/personalDetails">
 					<button id="back" class="btn btn-back" type="button">Back</button>
-				</a>
-			
-				<input id = "continue" class="btn btn-submit" type="submit" value="Continue" />
+				</a> <input id="continue" class="btn btn-submit" type="submit"
+					value="Continue" />
 			</p>
+<<<<<<< HEAD
 			<p><a class="link" onclick="return confirm('Are you sure you would like to cancel? All data will be lost.')" href="/home">Cancel</a></p>
 		</form>   
 		
 		     
+=======
+			<p>
+				<a class="link"
+					onclick="return confirm('Are you sure you would like to cancel? All data will be lost.')"
+					href="/home">Cancel</a>
+			</p>
+		</form>
+>>>>>>> branch 'v1.1.0' of https://github.com/jposthau/AccountOpening
 	</div>
+	<script type="text/javascript">
+		$('#phone').keyup(function(e) {
+			var numbers = this.value.replace(/\D/g, '');
+			// alert(numbers.length);
+			var specialChar = {
+				3 : '-',
+				6 : '-'
+			};
+			this.value = '';
+			for (var i = 0; i < numbers.length; i++) {
+				this.value += (specialChar[i] || '') + numbers[i];
+			}
+		})
+	</script>
 </body>
 </html>
