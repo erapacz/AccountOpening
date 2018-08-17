@@ -21,8 +21,8 @@ public class ContactDetailsController {
     }
 	
 	@RequestMapping(value="/contactDetails", method=RequestMethod.POST)
-    public @ResponseBody ContactDetails test(ContactDetails contactDetails){
+    public String test(ContactDetails contactDetails){
 		contactDetailsService.saveContactDetails(contactDetails);
-        return contactDetails;
+        return "accountDetails";
     }
 }

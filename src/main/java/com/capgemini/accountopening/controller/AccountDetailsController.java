@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.capgemini.accountopening.model.AccountDetails;
-import com.capgemini.accountopening.repository.AccountDetailsRepository;
+import com.capgemini.accountopening.service.AccountDetailsService;
 
 @Controller
 public class AccountDetailsController {
 	
 	@Autowired
-	private AccountDetailsRepository accountDetailsRepository;
+	private AccountDetailsService accountDetailsService;
 	
 	@RequestMapping(value="/accountDetails", method=RequestMethod.GET)
-	public String getAccountDetailsForm(Model model) {
-		model.addAttribute("accountDetails", new AccountDetails());
+	public String getAccountDetailsForm() {
 		return "accountDetails";
 	}
 	
 	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
-    public String toAccountDetails(Model model) {
-		return "accountDetails";
+    public String toAccountDetails(AccountDetails accountDetails) {
+		accountDetailsService.saveContactDetails(accountDetails);
+		return "nomineeDetails";
     }
 	
 }

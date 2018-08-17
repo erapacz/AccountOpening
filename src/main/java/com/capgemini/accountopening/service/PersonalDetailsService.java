@@ -1,4 +1,4 @@
-package Services;
+package com.capgemini.accountopening.service;
 
 import com.capgemini.accountopening.model.PersonalDetails;
 

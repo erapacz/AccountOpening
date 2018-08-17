@@ -1,12 +1,10 @@
-package ServiceImplementation;
+package com.capgemini.accountopening.service;
 
 import java.util.HashMap;
 
 import com.capgemini.accountopening.model.PersonalDetails;
 
-import Services.PersonalDetailsService;
-
-public class PersonalDetailsImplementation implements PersonalDetailsService{
+public class PersonalDetailsServiceImplementation implements PersonalDetailsService{
 
 	private HashMap<Long, PersonalDetails> PersonalDetailsMap = new HashMap<>();
 	@Override
