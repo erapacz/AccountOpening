@@ -55,8 +55,38 @@ function minBalSelect(select) {
 }
 
 function saveAccountDetails() {
-	sessionStorage.setItem("accType", document.getElementById("account").value);
+	var accType = document.getElementById("account").value;
+	sessionStorage.setItem("accType", accType);
+	generateAccountNum(accType);
 }
+
+function generateAccountNum(accType) {
+	var prefix = "";
+	var accNum;
+	if(accType == "Savings Account") {
+		prefix = "554";
+	}
+	else if(accType == "Checking Account") {
+		prefix = "774";
+	}
+	else {
+		prefix = "884";
+	}
+	accNum = prefix;
+	var body = Math.floor(Math.random() * 10000000);
+	var body2 = Math.floor(Math.random() * 1000000);
+	accNum = prefix + body + body2;
+	//var finalDigit = getCurrentCustomerId();
+	sessionStorage.setItem("accNum", accNum);
+}
+
+//Confirmation
+function showAccountNum() {
+	var accNum = sessionStorage.getItem("accNum");
+	document.getElementById("account_number").innerHTML = accNum;
+	
+}
+
 
 //PersonalInfo
 function savePersonalDetails() {
