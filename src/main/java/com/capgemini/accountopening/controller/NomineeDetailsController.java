@@ -13,15 +13,15 @@ import com.capgemini.accountopening.repository.ContactDetailsRepository;
 @Controller
 public class NomineeDetailsController {
 
-	@RequestMapping(value="/nominee_personal", method=RequestMethod.GET)
+	@RequestMapping(value="/nomineeDetails", method=RequestMethod.GET)
     public String NomineeerForm(Model model) {
         model.addAttribute("nominee", new Nominee());
-        return "nominee_personal";
+        return "nomineeDetails";
     }
 	
-	@RequestMapping(value="/nominee_personal", method=RequestMethod.POST)
+	@RequestMapping(value="/nomineeDetails", method=RequestMethod.POST)
 	public String toNomineePersonal(Model model) {
-		return "nominee_personal";
+		return "nomineeDetails";
 	}
 	
 }
