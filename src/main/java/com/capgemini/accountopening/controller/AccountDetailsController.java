@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.capgemini.accountopening.helper.AccountNumGenerator;
 import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.Customer;
 

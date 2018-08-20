@@ -15,9 +15,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AccountDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="acc_number")
-	private Long accNumber;
+	private String accNumber;
 	
 	@Column(name="customer_id")
 	private Long customerId;
@@ -30,11 +29,11 @@ public class AccountDetails {
 	
 	private String hasNominee;
 	
-	public Long getAccNumber() {
+	public String getAccNumber() {
 		return accNumber;
 	}
 
-	public void setAccNumber(Long accNumber) {
+	public void setAccNumber(String accNumber) {
 		this.accNumber = accNumber;
 	}
 

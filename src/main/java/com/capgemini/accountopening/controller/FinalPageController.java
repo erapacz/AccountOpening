@@ -1,29 +1,25 @@
 package com.capgemini.accountopening.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.capgemini.accountopening.model.AccountDetails;
-import com.capgemini.accountopening.model.ContactDetails;
-
-import com.capgemini.accountopening.model.NomineeDetails;
-
 import com.capgemini.accountopening.model.Customer;
-
-import com.capgemini.accountopening.model.PersonalDetails;
-import com.capgemini.accountopening.repository.AccountDetailsRepository;
-import com.capgemini.accountopening.repository.ContactDetailsRepository;
-import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 @Controller
 public class FinalPageController {
+	
+	@Autowired 
+	private Customer customer;
 		
 	@RequestMapping(value="/final", method=RequestMethod.GET)
-    public String confimationForm(Model model) {
+    public String confimationForm(HttpSession session) {
+		String accNum = customer.getAccountDetails().getAccNumber();
+		session.setAttribute("accNum",  accNum);
         return "final";
     }
 	

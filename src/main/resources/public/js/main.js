@@ -156,3 +156,8 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 } 
+
+function accountNum() {
+	var accNum = '${accNum}';
+	document.getElementById("accountNum").setAttribute("value", accNum.value);
+}
