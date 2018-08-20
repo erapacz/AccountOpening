@@ -29,10 +29,10 @@ function displayNominee() {
    var x = document.getElementById("nominee-checkbox");
    if(x.checked) {
          document.getElementById("continue").setAttribute("value","Add Nominee");
-         document.accountForm.action = "/nomineeDetails";
+         document.getElementById("hasNominee").setAttribute("value", "true");
    } else {
          document.getElementById("continue").setAttribute("value","Submit");
-         document.accountForm.action = "/confirmation";
+         document.getElementById("hasNominee").setAttribute("value", "false");
    }      
 }
 

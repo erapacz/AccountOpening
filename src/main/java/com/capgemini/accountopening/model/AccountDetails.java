@@ -28,6 +28,8 @@ public class AccountDetails {
 	@Column(name="acc_type")
 	private String accType;
 	
+	private String hasNominee;
+	
 	public Long getAccNumber() {
 		return accNumber;
 	}
@@ -58,6 +60,18 @@ public class AccountDetails {
 
 	public void setAccType(String accType) {
 		this.accType = accType;
+	}
+
+	public String getHasNominee() {
+		return hasNominee;
+	}
+
+	public void setHasNominee(String hasNominee) {
+		this.hasNominee = hasNominee;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 
 	@Override

@@ -2,18 +2,17 @@ package com.capgemini.accountopening.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.capgemini.accountopening.model.AccountDetails;
-import com.capgemini.accountopening.service.AccountDetailsService;
+import com.capgemini.accountopening.model.Customer;
 
 @Controller
 public class AccountDetailsController {
 	
 	@Autowired
-	private AccountDetailsService accountDetailsService;
+	private Customer customer;
 	
 	@RequestMapping(value="/accountDetails", method=RequestMethod.GET)
 	public String getAccountDetailsForm() {
@@ -22,8 +21,10 @@ public class AccountDetailsController {
 	
 	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
     public String toAccountDetails(AccountDetails accountDetails) {
-		accountDetailsService.saveAccountDetails(accountDetails);
-		return "nomineeDetails";
+		customer.setAccountDetails(accountDetails);
+		if(accountDetails.getHasNominee().equals("true"))
+			return "nomineeDetails";
+		return "confirmation";
     }
 	
 }

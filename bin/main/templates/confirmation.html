@@ -13,8 +13,7 @@
 		<h1 class="header">Confirmation</h1>
 
 
-		<form name="confirmation" action="/final"
-			onsubmit="saveConfirmation()" method="post">
+		<form name="confirmation" action="/confirmation" method="post">
 
 			<h2>Your Account has been created!</h2>
 			<br>
@@ -22,26 +21,10 @@
 			<h2>
 				Your account number is: <span id="account_number"></span>
 			</h2>
-			<h3>
-				For online account <a
-					href="https://www.discover.com/online-banking/">Click here</a>
-			</h3>
-
-
-
-
-
 
 			<p>
-				<input id="continue" class="btn btn-submit" type="submit"
-					value="Finish" />
+				<input id="continue" class="btn btn-submit" type="submit" value="Finish" />
 			</p>
-
-
-			<script type="text/javascript">
-				document.getElementById("account_number").innerHTML = sessionStorage
-						.getItem("acc_num");
-			</script>
 
 		</form>
 	</div>
