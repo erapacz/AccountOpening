@@ -1,22 +1,23 @@
 package com.capgemini.accountopening.service;
 
-import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.capgemini.accountopening.model.PersonalDetails;
+import com.capgemini.accountopening.repository.PersonalDetailsRepository;
 
 public class PersonalDetailsServiceImplementation implements PersonalDetailsService{
 
-	private HashMap<Long, PersonalDetails> PersonalDetailsMap = new HashMap<>();
+	@Autowired
+	PersonalDetailsRepository personalDetailsRepo;
+	
 	@Override
-	public void savePersonalDetails(PersonalDetails personaldetails) {
-		int id = 0;
-		//PersonalDetailsMap
+	public void savePersonalDetails(PersonalDetails personalDetails) {
+		personalDetailsRepo.save(personalDetails);
 	}
 
 	@Override
-	public PersonalDetails getPersonalDetails() {
-		
-		return null;
+	public PersonalDetails getPersonalDetailsById(long id) {
+		return personalDetailsRepo.getOne(id);
 	}
 	
 }

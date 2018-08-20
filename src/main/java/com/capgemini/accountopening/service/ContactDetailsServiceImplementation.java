@@ -1,7 +1,6 @@
 package com.capgemini.accountopening.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.capgemini.accountopening.model.ContactDetails;
 import com.capgemini.accountopening.repository.ContactDetailsRepository;

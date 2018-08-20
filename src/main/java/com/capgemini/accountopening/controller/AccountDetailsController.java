@@ -22,7 +22,7 @@ public class AccountDetailsController {
 	
 	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
     public String toAccountDetails(AccountDetails accountDetails) {
-		accountDetailsService.saveContactDetails(accountDetails);
+		accountDetailsService.saveAccountDetails(accountDetails);
 		return "nomineeDetails";
     }
 	
