@@ -7,7 +7,7 @@
 
 <meta charset='&#1F600;'>
 </head>
-<body>
+<body onload="showAccNum()">
 
 
 	<div align="center">
@@ -19,9 +19,8 @@
 		<h2 style="color: blue;">
 			Your account has been successfully opened
 		</h2>
-		<h2 style="color: blue;">
-				Your account number is: <input id="accountNum" value="${session.accNum}"></input>
-		</h2>
+		<label id="accNum"></label>
+		
 		<h3 style="color: blue;">
 			Thank you for choosing ROCKSTAR BANK
 		</h3>
@@ -29,6 +28,14 @@
 
 
 	</div>
+	
+	<script type="text/javascript">
+    	function showAccNum(){
+    		var accNum = window.location.href;
+    		accNum = accNum.substring(accNum.lastIndexOf("/")+1, accNum.length)
+    		document.getElementById("accNum").innerHTML = "Your account number is: "+accNum;
+    	}
+ 	</script>
 
 </body>
 </html>

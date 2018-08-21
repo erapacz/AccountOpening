@@ -1,7 +1,5 @@
 package com.capgemini.accountopening.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +14,8 @@ public class FinalPageController {
 	@Autowired 
 	private Customer customer;
 		
-	@RequestMapping(value="/final", method=RequestMethod.GET)
-    public String confimationForm(HttpSession session) {
-		String accNum = customer.getAccountDetails().getAccNumber();
-		session.setAttribute("accNum",  accNum);
+	@RequestMapping(value="/final/{accNum}", method=RequestMethod.GET)
+    public String getFinal() {
         return "final";
     }
 	

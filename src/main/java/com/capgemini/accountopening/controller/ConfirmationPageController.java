@@ -1,5 +1,9 @@
 package com.capgemini.accountopening.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +42,7 @@ public class ConfirmationPageController {
     }
 	
 	@RequestMapping(value="/confirmation", method=RequestMethod.POST)
-	public String toConfimation() {
+	public void toConfimation(HttpServletResponse response) {
 		String accNum = AccountNumGenerator.getAccType(customer.getAccountDetails().getAccType());
 		customer.getAccountDetails().setAccNumber(accNum);
 		personalDetailsService.savePersonalDetails(customer.getPersonalDetails());
@@ -46,7 +50,11 @@ public class ConfirmationPageController {
 		accountDetailsService.saveAccountDetails(customer.getAccountDetails());
 		if(customer.getAccountDetails().getHasNominee().equals("true"))
 			nomineeDetailsService.saveNomineeDetails(customer.getNomineeDetails());
-		return "final";
+		try {
+			response.sendRedirect("/final/"+accNum);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
