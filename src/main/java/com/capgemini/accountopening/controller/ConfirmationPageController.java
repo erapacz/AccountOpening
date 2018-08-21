@@ -46,6 +46,8 @@ public class ConfirmationPageController {
 		String accNum = AccountNumGenerator.getAccType(customer.getAccountDetails().getAccType());
 		customer.getAccountDetails().setAccNumber(accNum);
 		personalDetailsService.savePersonalDetails(customer.getPersonalDetails());
+		customer.getAccountDetails().setCustomerId(customer.getPersonalDetails().getId());
+		customer.getContactDetails().setCustomer_Id(customer.getPersonalDetails().getId());
 		contactDetailsService.saveContactDetails(customer.getContactDetails());
 		accountDetailsService.saveAccountDetails(customer.getAccountDetails());
 		if(customer.getAccountDetails().getHasNominee().equals("true"))
