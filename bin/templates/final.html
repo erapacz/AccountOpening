@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Contact Details</title>
+<title>Account Opened</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="/css/styles.css">
 <script type="text/javascript" src="/js/main.js"></script>
@@ -11,29 +11,23 @@
 
 
 	<div align="center">
-
-
+	
 		<br> <br> <br> <br>
-		<h1 style="color: blue;">Congratulations !!!</h1>
+		<h1 class="header">Congratulations!</h1>
 
-		<h2 style="color: blue;">
-			Your account has been successfully opened
-		</h2>
+		<h2 class="text">Your account has been successfully opened</h2>
+		
 		<label id="accNum"></label>
 		
-		<h3 style="color: blue;">
-			Thank you for choosing ROCKSTAR BANK
-		</h3>
-
-
-
+		<h3 class="text-sm">Thank you for choosing ROCKSTAR BANK</h3>
+		
 	</div>
 	
 	<script type="text/javascript">
     	function showAccNum(){
     		var accNum = window.location.href;
     		accNum = accNum.substring(accNum.lastIndexOf("/")+1, accNum.length)
-    		document.getElementById("accNum").innerHTML = "Your account number is: "+accNum;
+    		document.getElementById("accNum").innerHTML = "Your account number is: <span style=\"text-decoration:underline\">"+accNum+"</span>";
     	}
  	</script>
 
