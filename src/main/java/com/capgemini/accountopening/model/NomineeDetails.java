@@ -19,6 +19,9 @@ public class NomineeDetails {
 	@Column(name="nominee_id")
 	private Long id;
 	
+	@Column(name="customer_id")
+	private Long customerId;
+	
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -46,6 +49,14 @@ public class NomineeDetails {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getCustomerId() {
+		return customerId;
+	}
+	
+	public void setCustomerId(long customerId) {
+		this.customerId= customerId;
 	}
 
 	public String getFirstName() {
