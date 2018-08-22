@@ -8,8 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,25 +26,35 @@ public class PersonalDetails {
 	private Long id;
 	
 	@Column(name="fname")
+	@NotEmpty(message="Field cannot be empty")
+	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String firstName;
 	
 	@Column(name="lname")
+	@NotEmpty(message="Field cannot be empty")
+	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String lastName;
 	
 	@Column(name="mname")
+	@Size(min=1, max=20, message="Must be between 2-20 characters")
 	private String middleName;
 	
 	@Column(name="suffix")
 	private String suffix;
 	
 	@Column(name="ssn")
+	@NotNull(message="Field cannot be empty")
+//	@Pattern(regexp="^(?!219099999|078051120)(?!666|000|9\\d{2})\\d{3}(?!00)\\d{2}(?!0{4})\\d{4}$", message="Invalid SSN")
 	private int ssn;
 	
 	@Column(name="dob")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+	@NotNull(message="Field cannot be empty")
+	@Past(message="Invalid Date")
 	private Date dob;
 	
 	@Column(name="maiden")
+	@NotEmpty(message="Field cannot be empty")
+	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String motherMName;
 
 	public Long getId() {

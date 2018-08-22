@@ -11,6 +11,10 @@
        color: darkorange;
 }
 
+.valid-error {
+	color: red;
+}
+
 #logo {
     
        font-size: 60px; 

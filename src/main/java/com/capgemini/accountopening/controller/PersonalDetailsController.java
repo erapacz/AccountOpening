@@ -1,29 +1,41 @@
 package com.capgemini.accountopening.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.capgemini.accountopening.model.Customer;
 import com.capgemini.accountopening.model.PersonalDetails;
 
 @Controller
-public class PersonalDetailsController {
+public class PersonalDetailsController implements WebMvcConfigurer{
 
 	@Autowired
 	private Customer customer;
 	
-	@RequestMapping(value = "/personalDetails", method = RequestMethod.GET)
-    public String getPersonalDetailsForm() {
+	@Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/contactDetails").setViewName("contactDetails");
+    }
+	
+	@GetMapping("/personalDetails")
+    public String showForm(PersonalDetails personalDetails) {
 		return "personalDetails";
     }
 	
-	@RequestMapping(value="/personalDetails", method=RequestMethod.POST)
-    public String test(PersonalDetails personalDetails){
-		//personalDetailsService.savePersonalDetails(personalDetails);
+	@PostMapping("/personalDetails")
+    public String checkPersonalDetails(@Valid PersonalDetails personalDetails, BindingResult bindingResult){
+		if(bindingResult.hasErrors()) {
+			return "personalDetails";
+		}
 		customer.setPersonalDetails(personalDetails);
-        return "contactDetails";
+        return "redirect:/contactDetails";
     }
 	
 
