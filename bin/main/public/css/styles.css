@@ -21,14 +21,12 @@
        color: darkorange;
 }
 
-/* Style the tab */
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 
-/* Style the buttons that are used to open the tab content */
 .tab button {
     background-color: inherit;
     float: left;
@@ -39,17 +37,14 @@
     transition: 0.3s;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
     background-color: #ccc;
 }
 
-/* Style the tab content */
 .tabcontent {
     display: none;
     padding: 6px 12px;
@@ -58,10 +53,9 @@
 } 
 
 .tabcontent {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    animation: fadeEffect 1s;
 }
 
-/* Go from zero to full opacity */
 @keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -220,4 +214,16 @@ body {
 /* hidden form */
 #nominee-section {
 	display: none;
+}
+
+
+
+.error-page {
+	text-align: center;
+	font-size: 20px;
+    font-family: 'Francois One', sans-serif;
+	color: darkorange;
+	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	background-image: url(/external/tenor.gif);
+
 }
