@@ -1,21 +1,11 @@
 package com.capgemini.accountopening.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@Entity
-@Table(name="nominee")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class NomineeDetails {
-	
+public class Nominee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="nominee_id")
@@ -24,21 +14,15 @@ public class NomineeDetails {
 	@Column(name="customer_id")
 	private Long customerId;
 	
-	@NotBlank(message="First name can't be blank")
-	@Size(max=255,message = "First name  exceded 255 characters")
 	@Column(name="first_name")
 	private String firstName;
 	
-	@Size(max=255,message = "Middle name  exceded 255 characters")
 	@Column(name="middle_name")
 	private String middleName;
 	
-	@NotBlank(message="Last name can't be blank")
-	@Size(max=255,message = "Last name  exceded 255 characters")
 	@Column(name="last_name")
 	private String lastName;
 	
-	@Size(max=8,message = "Suffix  exceded 8 characters")
 	@Column(name="suffix")
 	private String suffix;
 	
@@ -48,8 +32,6 @@ public class NomineeDetails {
 	@Column(name="dob")
 	private String dob;
 	
-	@NotBlank(message="Mother name can't be blank")
-	@Size(max=255,message = "Mother name  exceded 255 characters")
 	@Column(name="mothers_maiden_name")
 	private String motherMName;
 
