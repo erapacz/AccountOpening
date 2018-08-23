@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -20,6 +21,7 @@ public class AccountDetails {
 	private Long customerId;
 	
 	@Column(name="balance")
+	@Size(min=50, max=100000, message="Must deposit at least $50")
 	private int balance;
 	
 	@Column(name="acc_type")

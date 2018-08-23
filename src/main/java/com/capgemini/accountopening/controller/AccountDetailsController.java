@@ -1,31 +1,45 @@
 package com.capgemini.accountopening.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.capgemini.accountopening.helper.AccountNumGenerator;
 import com.capgemini.accountopening.model.AccountDetails;
 import com.capgemini.accountopening.model.Customer;
 
 @Controller
-public class AccountDetailsController {
+public class AccountDetailsController implements WebMvcConfigurer{
 	
 	@Autowired
 	private Customer customer;
 	
-	@RequestMapping(value="/accountDetails", method=RequestMethod.GET)
-	public String getAccountDetailsForm() {
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/nomineeDetails").setViewName("nomineeDetails");
+		registry.addViewController("/confirmation").setViewName("confirmation");
+	}
+	
+	@GetMapping("/accountDetails")
+	public String getAccountDetailsForm(AccountDetails accountDetails) {
+//		model.addAttribute("accountDetails", new AccountDetails());
 		return "accountDetails";
 	}
 	
-	@RequestMapping(value="/accountDetails", method=RequestMethod.POST)
-    public String toAccountDetails(AccountDetails accountDetails) {
+	@PostMapping("/accountDetails")
+    public String toAccountDetails(@Valid AccountDetails accountDetails, BindingResult binding) {
+		if(binding.hasErrors()) {
+			return "accountDetails";
+		}
 		customer.setAccountDetails(accountDetails);
 		if(accountDetails.getHasNominee().equals("true"))
-			return "nomineeDetails";
-		return "confirmation";
+			return "redirect:/nomineeDetails";
+		return "redirect:/confirmation";
     }
 	
 }

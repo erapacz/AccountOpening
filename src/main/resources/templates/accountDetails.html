@@ -8,9 +8,7 @@
 <body>
 	<div align="center">
 		<h1 class="header">Account Information</h1>
-	</div>
-	<div align="center">
-		<form name="accountForm" action="/accountDetails" method="post">
+		<form action="#" name="accountForm" th:action="@{/accountDetails}" th:object="${accountDetails}" method="post">
 			<p>
 				<select id="account" name="accType" class="textbox"
 					onchange="minBalSelect(this.options[this.selectedIndex].value)" autofocus>
@@ -34,14 +32,15 @@
 					<option class="option" id="check-option" value="Check">Check</option>
 				</select>
 			</p>
-			<p id="amtWarning" class="amtWarning">
-				<label style="color: red; font-size: 12;">You must deposit a
-					minimum amount of $50 for a Checking Account.</label>
-			</p>
-			<p>
-				<input id="depositAmt" name="balance" class="textbox" type="text"
-					placeholder="Deposit Amount" maxlength="20" required />
-			</p>
+			<div class="form-group">
+				<p id="amtWarning" class="amtWarning">
+					<label style="color: red; font-size: 12;">You must deposit a
+						minimum amount of $50 for a Checking Account.</label>
+				</p>
+				<input id="depositAmt" th:field="*{balance}" class="textbox" type="text"
+						placeholder="Deposit Amount" maxlength="20" required />
+				<span th:if="${#fields.hasErrors('balance')}" class="valid-error" th:errors="*{balance}"></span>
+			</div>
 			<p class="info-bank" id="bank">
 				<input id="routingNum" class="textbox" type="text"
 					placeholder="Routing Number" maxlength="9" /> 
