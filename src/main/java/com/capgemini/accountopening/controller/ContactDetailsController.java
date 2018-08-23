@@ -16,10 +16,12 @@ public class ContactDetailsController {
 	@Autowired
 	private Customer customer;
 	
+	
 	@GetMapping(value = "/contactDetails")
     public String getContactDetailsForm() {
 		return "contactDetails";
     }
+	
 	
 	@PostMapping(value="/contactDetails")
     public String test(@Valid ContactDetails contactDetails, BindingResult bindingResult){

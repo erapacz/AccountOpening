@@ -52,7 +52,7 @@ public class ContactDetails {
 	
 	@Column(name="country")
 	@NotNull(message="Field cannot be empty")
-	@Pattern(regexp="^[a-zA-Z]+$", message="Invalid Country name")
+	@Pattern(regexp="^[a-zA-Z]+$", message="Invalid Entry")
 	private String country;
 	
 	@Column(name="phone")
