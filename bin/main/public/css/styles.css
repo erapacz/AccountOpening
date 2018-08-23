@@ -13,10 +13,22 @@
 
 .valid-error {
 	color: red;
+	display: inline;
+	position: absolute;
+	padding-left: 10;
+	font-size: 24;
+}
+
+.form_input {
+	display: inline-block;
+	position: relative;
+}
+
+.form-group {
+	margin-bottom: 20;
 }
 
 #logo {
-    
        font-size: 60px; 
        color: darkorange;
 }
@@ -67,7 +79,6 @@
     to {opacity: 1;}
 } 
 
-
 .footer {
     position: fixed;
     left: 0;
@@ -77,7 +88,6 @@
     color: black;
     text-align: center;
 }
-
 
 .text {
 	font-family: 'Francois One', sans-serif;
@@ -97,7 +107,11 @@
 	width: 350px;
 	height: 50px;
 	padding-left: 20;
+}
 
+.suffix {
+	width: 70;
+	padding: 0;
 }
 
 .checkbox {
@@ -132,29 +146,25 @@ label {
 	font-weight: bolder;
 }
 
-/* #error-box
-
-{color: #D8000C;
-
-background-color: #FFBABA;
-
-} */
-
 .error {
     color: red;
 }
 
 div.ssn {
 	display: inline-block;
+	border-style: solid;
+	border-width: 1;
+	margin-bottom: 20;
+	padding: 0 20 0 20;
 }
 
 input.ssn {
 	font-family: 'Francois One', sans-serif;
 	font-size: 20;
 	font-weight: bolder;
-	width: 90px;
 	height: 50px;
 	text-align: center;
+	border: none;
 }
 
 a:link {

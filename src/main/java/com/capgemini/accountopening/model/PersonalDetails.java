@@ -1,6 +1,6 @@
 package com.capgemini.accountopening.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,34 +30,32 @@ public class PersonalDetails {
 	private Long id;
 	
 	@Column(name="fname")
-	@NotEmpty(message="Field cannot be empty")
 	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String firstName;
 	
 	@Column(name="lname")
-	@NotEmpty(message="Field cannot be empty")
 	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String lastName;
 	
 	@Column(name="mname")
-	@Size(min=1, max=20, message="Must be between 2-20 characters")
+	@Size(min=0, max=20, message="Must be less than 20 characters")
 	private String middleName;
 	
 	@Column(name="suffix")
 	private String suffix;
 	
 	@Column(name="ssn")
-	@NotNull(message="Field cannot be empty")
-//	@Pattern(regexp="^(?!219099999|078051120)(?!666|000|9\\d{2})\\d{3}(?!00)\\d{2}(?!0{4})\\d{4}$", message="Invalid SSN")
-	private int ssn;
+	@Pattern(regexp="^(?!219099999|078051120)(?!666|000|9\\d{2})\\d{3}(?!00)\\d{2}(?!0{4})\\d{4}$", message="Invalid SSN")
+	private String ssn;
 	
 	@Column(name="dob")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	@NotNull(message="Field cannot be empty")
 	@Past(message="Invalid Date")
 	private Date dob;
 	
 	@Column(name="maiden")
-	@NotEmpty(message="Field cannot be empty")
 	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String motherMName;
 
@@ -97,11 +99,11 @@ public class PersonalDetails {
 		this.suffix = suffix;
 	}
 
-	public int getSsn() {
+	public String getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 
