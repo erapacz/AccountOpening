@@ -37,7 +37,6 @@ public class ConfirmationPageController {
 		
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
     public String confimationForm(Model model) {
-		
         return "confirmation";
     }
 	
@@ -55,6 +54,7 @@ public class ConfirmationPageController {
 		try {
 			response.sendRedirect("/final/"+accNum);
 		} catch (IOException e) {
+			System.out.println("Test");
 			e.printStackTrace();
 		}
 	}
