@@ -7,22 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.capgemini.accountopening.model.Customer;
 import com.capgemini.accountopening.model.PersonalDetails;
 
 @Controller
-public class PersonalDetailsController implements WebMvcConfigurer{
+public class PersonalDetailsController {
 
 	@Autowired
 	private Customer customer;
-	
-	@Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/contactDetails").setViewName("contactDetails");
-    }
 	
 	@GetMapping("/personalDetails")
     public String showForm(PersonalDetails personalDetails) {
@@ -35,7 +28,7 @@ public class PersonalDetailsController implements WebMvcConfigurer{
 			return "personalDetails";
 		}
 		customer.setPersonalDetails(personalDetails);
-        return "redirect:/contactDetails";
+        return "contactDetails";
     }
 	
 
