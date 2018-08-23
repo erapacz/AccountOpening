@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,27 +27,41 @@ public class ContactDetails {
 	private Long customer_Id;
 	
 	@Column(name="address1")
+	@NotNull(message="Field cannot be empty")
+	@Pattern(regexp="[\\w',-\\\\/.\\s]", message="Invalid Address")
 	private String address1;
 	
 	@Column(name="address2")
+	@Pattern(regexp="[\\w',-\\\\/.\\s]", message="Invalid Address")
 	private String address2;
 	
 	@Column(name="city")
+	@NotNull(message="Field cannot be empty")
+	@Pattern(regexp="^[a-zA-Z]+$", message="Invalid City name")
 	private String city;
 	
 	@Column(name="state")
+	@NotNull(message="Field cannot be empty")
+	@Pattern(regexp="^[a-zA-Z]+$", message="Invalid State name")
 	private String state;
 	
 	@Column(name="postal")
+	@Size(min=5, max=5, message="Postal Code Must be 5 characters")
+	@Pattern(regexp="^[0-9]{5}$", message="Invalid Postal code")
 	private int postal;
 	
 	@Column(name="country")
+	@NotNull(message="Field cannot be empty")
+	@Pattern(regexp="^[a-zA-Z]+$", message="Invalid Country name")
 	private String country;
 	
 	@Column(name="phone")
+	@NotNull(message="Field cannot be empty")
 	private String phone;
 	
 	@Column(name="email")
+	@Email
+	@NotNull(message="Field cannot be empty")
 	private String email;
 
 	public Long getAddress_Id() {

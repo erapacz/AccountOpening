@@ -9,32 +9,40 @@
 </head>
 <body>
 	<div align="center">
-		<h1 class="header">Contact Details</h1>
-		<form id="form" action="/contactDetails" method="post">
-			<p>
-				<input id="address1" name = "address1" class="textbox" type="text" placeholder="Address1" required autofocus/>
-			</p>
-			<p>
-				<input id="address2" name="address2" class="textbox" type="text" placeholder="Address2 (Optional)" />
-			</p>
-			<p>
-				<input id="city" name="city" class="textbox" type="text" placeholder="City" onkeypress="return isAlphaKey(event)" required />
-			</p>
-			<p>
-				<input id="state" name="state" class="textbox" type="text" placeholder="State" onkeypress="return isAlphaKey(event)" required />
-			</p>
-			<p>
-				<input id="postal" name="postal" class="textbox" type="text" title="Five digit zip code" placeholder="Postal" maxlength="5" onkeypress="return isNumberKey(event)" required />
-			</p>
-			<p>
-				<input id="country" name="country" class="textbox" type="text" placeholder="Country" onkeypress="return isAlphaKey(event)" required />
-			</p>
-			<p>
-				<input id="phone" name="phone" class="textbox" type="tel" placeholder="Phone (XXX-XXX-XXXX)" maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title='Phone Number (Format: 999-999-9999)' required/>
-			</p>
-			<p>
-				<input id="email" name="email" class="textbox" type="email" placeholder="Email" required />
-			</p>
+		<h1 class="header" style="text-align: center;">Contact Details</h1>
+		<form action="#" name="contactInfo" th:action="@{/contactDetails}" th:object="${contactDetails}" method="post">
+			<div class="form-group">
+				<div><input class="textbox form-input" id="address1" th:field="*{address1}" type="text"  placeholder="Address 1" autofocus/>
+				<span th:if="${#fields.hasErrors('address1')}" class="valid-error" th:errors="*{address1}"></span></div>
+        	</div>
+        	<div class="form-group">
+				<div><input class="textbox form-input" id="address2" th:field="*{address2}" type="text"  placeholder="Address 2" autofocus/>
+				<span th:if="${#fields.hasErrors('address2')}" class="valid-error" th:errors="*{address2}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="city" th:field="*{city}" type="text"  placeholder="City" autofocus/>
+				<span th:if="${#fields.hasErrors('city')}" class="valid-error" th:errors="*{city}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="state" th:field="*{state}" type="text"  placeholder="State" autofocus/>
+				<span th:if="${#fields.hasErrors('state')}" class="valid-error" th:errors="*{state}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="postal" th:field="*{postal}" type="text" title="Five digit zip code" placeholder="Postal" autofocus/>
+				<span th:if="${#fields.hasErrors('postal')}" class="valid-error" th:errors="*{postal}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="country" th:field="*{country}" type="text"  placeholder="Country" autofocus/>
+				<span th:if="${#fields.hasErrors('country')}" class="valid-error" th:errors="*{country}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="phone" th:field="*{phone}" type="tel"  title='Phone Number (Format: 999-999-9999)' maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone (XXX-XXX-XXXX)" autofocus/>
+				<span th:if="${#fields.hasErrors('phone')}" class="valid-error" th:errors="*{phone}"></span></div>
+        	</div>
+			<div class="form-group">
+				<div><input class="textbox form-input" id="email" th:field="*{email}" type="email"  placeholder="Email" autofocus/>
+				<span th:if="${#fields.hasErrors('email')}" class="valid-error" th:errors="*{email}"></span></div>
+        	</div>
 			<p>
 				<a href="/personalDetails">
 					<button id="back" class="btn btn-back" type="button">Back</button>
