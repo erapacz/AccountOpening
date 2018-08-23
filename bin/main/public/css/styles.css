@@ -110,7 +110,7 @@
 }
 
 .suffix {
-	width: 70;
+	width: 75;
 	padding: 0;
 }
 
@@ -156,13 +156,14 @@ div.ssn {
 	border-width: 1;
 	margin-bottom: 20;
 	padding: 0 20 0 20;
+	height: 50px;
 }
 
 input.ssn {
 	font-family: 'Francois One', sans-serif;
 	font-size: 20;
 	font-weight: bolder;
-	height: 50px;
+	height: 45px;
 	text-align: center;
 	border: none;
 }
