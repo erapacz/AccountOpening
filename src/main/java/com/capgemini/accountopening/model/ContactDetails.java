@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,35 +27,35 @@ public class ContactDetails {
 	private Long customer_Id;
 	
 	@Column(name="address1")
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String address1;
 	
 	@Column(name="address2")
 	private String address2;
 	
 	@Column(name="city")
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String city;
 	
 	@Column(name="state")
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String state;
 	
 	@Column(name="postal")
-	@Digits(integer=5, fraction=0)
-	private int postal;
+	@Size(min=5, max=5, message="Invalid postal code")
+	private String postal;
 	
 	@Column(name="country")
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String country;
 	
 	@Column(name="phone")
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String phone;
 	
 	@Column(name="email")
 	@Email
-	@NotNull(message="Field cannot be empty")
+	@Size(min=1, message="Field cannot be empty")
 	private String email;
 
 	public Long getAddress_Id() {
@@ -105,11 +106,11 @@ public class ContactDetails {
 		this.state = state;
 	}
 
-	public int getPostal() {
+	public String getPostal() {
 		return postal;
 	}
 
-	public void setPostal(int postal) {
+	public void setPostal(String postal) {
 		this.postal = postal;
 	}
 

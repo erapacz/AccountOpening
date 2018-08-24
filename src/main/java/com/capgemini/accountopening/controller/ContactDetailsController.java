@@ -33,8 +33,7 @@ public class ContactDetailsController implements WebMvcConfigurer {
     }
 	
 	@PostMapping("/contactDetails")
-    public String checkContactDetails(@ModelAttribute @Valid ContactDetails contactDetails, Model model, BindingResult bindingResult){
-		model.addAttribute("contactDetails", contactDetails);
+    public String checkContactDetails(@Valid ContactDetails contactDetails, BindingResult bindingResult){
 		if(bindingResult.hasErrors()) {
 			return "contactDetails";
 		}

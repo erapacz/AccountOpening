@@ -33,16 +33,11 @@ public class PersonalDetailsController implements WebMvcConfigurer {
     }
 	
 	@PostMapping("/personalDetails")
-    public String checkPersonalDetails(@Valid PersonalDetails personalDetails, Model model, BindingResult bindingResult){
-		model.addAttribute("personalDetails", personalDetails);
+    public String checkPersonalDetails(@Valid PersonalDetails personalDetails, BindingResult bindingResult){
 		if(bindingResult.hasErrors()) {
 			return "personalDetails";
 		}
 		customer.setPersonalDetails(personalDetails);
-		//model.addAttribute("contactDetails", new ContactDetails());
         return "redirect:/contactDetails";
     }
-	
-
-	
 }

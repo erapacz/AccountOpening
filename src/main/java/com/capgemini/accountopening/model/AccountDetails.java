@@ -21,7 +21,6 @@ public class AccountDetails {
 	private Long customerId;
 	
 	@Column(name="balance")
-	//@Size(min=50, max=100000, message="Must deposit at least $50")
 	@Min(value=50, message="Must deposit at least $50")
 	private int balance;
 	
