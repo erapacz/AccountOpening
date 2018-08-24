@@ -4,31 +4,41 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 import com.capgemini.accountopening.model.ContactDetails;
 import com.capgemini.accountopening.model.Customer;
 
 @Controller
-public class ContactDetailsController {
+public class ContactDetailsController implements WebMvcConfigurer {
 
 	@Autowired
 	private Customer customer;
 	
+	@Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/accountDetails").setViewName("accountDetails");
+    }
 	
-	@GetMapping(value = "/contactDetails")
-    public String getContactDetailsForm() {
+	@GetMapping("/contactDetails")
+    public String showForm(Model model) {
+		model.addAttribute("contactDetails", new ContactDetails());
 		return "contactDetails";
     }
 	
-	
-	@PostMapping(value="/contactDetails")
-    public String test(@Valid ContactDetails contactDetails, BindingResult bindingResult){
+	@PostMapping("/contactDetails")
+    public String checkContactDetails(@ModelAttribute @Valid ContactDetails contactDetails, Model model, BindingResult bindingResult){
+		model.addAttribute("contactDetails", contactDetails);
 		if(bindingResult.hasErrors()) {
 			return "contactDetails";
 		}
 		customer.setContactDetails(contactDetails);
-        return "accountDetails";
+        return "redirect:/accountDetails";
     }
 }
