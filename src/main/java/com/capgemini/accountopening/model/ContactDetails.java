@@ -56,19 +56,19 @@ public class ContactDetails {
 	@Size(min=1, message="Field cannot be empty")
 	private String email;
 
-	public Long getAddress_Id() {
+	public Long getAddressId() {
 		return address_Id;
 	}
 
-	public void setAddress_Id(Long address_Id) {
+	public void setAddressId(Long address_Id) {
 		this.address_Id = address_Id;
 	}
 
-	public Long getCustomer_Id() {
+	public Long getCustomerId() {
 		return customer_Id;
 	}
 
-	public void setCustomer_Id(Long customer_Id) {
+	public void setCustomerId(Long customer_Id) {
 		this.customer_Id = customer_Id;
 	}
 

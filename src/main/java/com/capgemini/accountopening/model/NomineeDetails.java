@@ -29,6 +29,9 @@ public class NomineeDetails {
 	@Column(name="nominee_id")
 	private Long id;
 	
+	@Column(name="customer_id")
+	private Long customerId;
+	
 	@Column(name="fname")
 	@Size(min=2, max=20, message="Must be between 2-20 characters")
 	private String firstName;
@@ -121,6 +124,14 @@ public class NomineeDetails {
 
 	public void setMotherMName(String motherMName) {
 		this.motherMName = motherMName;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	@Override
