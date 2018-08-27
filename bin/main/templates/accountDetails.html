@@ -37,8 +37,8 @@
 					<label style="color: red; font-size: 12;">You must deposit a
 						minimum amount of $50 for a Checking Account.</label>
 				</p>
-				<input id="depositAmt" th:field="*{balance}" class="textbox" type="text"
-						placeholder="Deposit Amount" maxlength="20" required />
+				<label>Deposit Amount</label>
+				<input id="depositAmt" th:field="*{balance}" class="currency" type="number" value="1000" min="0" step="1.00" />
 				<span th:if="${#fields.hasErrors('balance')}" class="valid-error" th:errors="*{balance}"></span>
 			</div>
 			<p class="info-bank" id="bank">

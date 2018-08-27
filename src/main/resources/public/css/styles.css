@@ -110,8 +110,22 @@
 }
 
 .suffix {
-	width: 75;
-	padding: 0;
+	font-family: 'Francois One', sans-serif;
+	font-size: 20;
+	font-weight: bolder;
+	width: 110px;
+	height: 50px;
+	padding-left: 20;
+}
+
+.currency {
+	font-family: 'Francois One', sans-serif;
+	font-size: 20;
+	font-weight: bolder;
+	height: 50px;
+	width:120px;
+	padding-left: 20;
+	
 }
 
 .checkbox {

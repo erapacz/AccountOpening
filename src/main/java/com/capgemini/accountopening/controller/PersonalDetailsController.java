@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.capgemini.accountopening.model.ContactDetails;
 import com.capgemini.accountopening.model.Customer;
 import com.capgemini.accountopening.model.PersonalDetails;
 
