@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="c_account")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AccountDetails {
+	
 	@Id
 	@Column(name="acc_number")
 	private String accNumber;

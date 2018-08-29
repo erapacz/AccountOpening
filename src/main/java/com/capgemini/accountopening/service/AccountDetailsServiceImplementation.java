@@ -19,6 +19,6 @@ public class AccountDetailsServiceImplementation implements AccountDetailsServic
 
 	@Override
 	public AccountDetails getAccountDetailsById(String id) {
-		return accountDetailsRepo.getOne(id);
+		return accountDetailsRepo.findByAccNumber(id).get();
 	}
 }
