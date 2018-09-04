@@ -12,6 +12,8 @@ public class VerificationDetails implements Serializable{
 	
 	private String accNum;
 	
+	private Long customerId;
+	
 	private String maiden;
 	
 	private String ssn;
@@ -53,6 +55,14 @@ public class VerificationDetails implements Serializable{
 		this.dob = dob;
 	}
 	
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
 	@Override
 	public String toString() {
 		return "VerificationDetails [accNum=" + accNum + ", maiden=" + maiden + ", ssn=" + ssn + ", dob=" + dob + "]";

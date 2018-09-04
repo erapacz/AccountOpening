@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.capgemini.accountopening.helper.AccountNumGenerator;
 import com.capgemini.accountopening.model.Customer;
-import com.capgemini.accountopening.service.AccountDetailsService;
-import com.capgemini.accountopening.service.ContactDetailsService;
-import com.capgemini.accountopening.service.NomineeDetailsService;
-import com.capgemini.accountopening.service.PersonalDetailsService;
+import com.capgemini.accountopening.service.AccountDetailsServiceImplementation;
+import com.capgemini.accountopening.service.ContactDetailsServiceImplementation;
+import com.capgemini.accountopening.service.NomineeDetailsServiceImplementation;
+import com.capgemini.accountopening.service.PersonalDetailsServiceImplementation;
 
 @Controller
 public class ConfirmationPageController {
@@ -24,16 +24,16 @@ public class ConfirmationPageController {
 	private Customer customer;
 	
 	@Autowired
-	private PersonalDetailsService personalDetailsService;
+	private PersonalDetailsServiceImplementation personalDetailsService;
 	
 	@Autowired
-	private ContactDetailsService contactDetailsService;
+	private ContactDetailsServiceImplementation contactDetailsService;
 	
 	@Autowired
-	private AccountDetailsService accountDetailsService;
+	private AccountDetailsServiceImplementation accountDetailsService;
 	
 	@Autowired
-	private NomineeDetailsService nomineeDetailsService;
+	private NomineeDetailsServiceImplementation nomineeDetailsService;
 		
 	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
     public String confimationForm(Model model) {

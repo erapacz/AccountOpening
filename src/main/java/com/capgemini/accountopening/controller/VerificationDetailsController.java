@@ -34,11 +34,13 @@ public class VerificationDetailsController {
 			verify.setDob(personal.getDob());
 			verify.setMaiden(personal.getMotherMName());
 			verify.setSsn(personal.getSsn());
+			verify.setCustomerId(personal.getId());
 		} catch(Exception e) {
 			verify.setAccNum(accNum);
 			verify.setDob(null);
 			verify.setMaiden(null);
 			verify.setSsn(null);
+			verify.setCustomerId(null);
 		}
 		return verify;
 	}
