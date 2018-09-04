@@ -46,8 +46,8 @@
 				<input id="ssn2" name="ssn2" class="ssn" type="password" style="width: 30;" placeholder="XX" maxlength="2" onKeyup="autotab(this, document.personalInfo.ssn3); generateSSN()" />
 				<label>-</label>
 				<input id="ssn3" name="ssn3" class="ssn" type="password" style="width: 60;" placeholder="XXXX" maxlength="4" onKeyup="generateSSN()"  />
-				<span th:if="${#fields.hasErrors('ssn')}" class="valid-error" th:errors="*{ssn}"></span>
 			</div>
+			<span th:if="${#fields.hasErrors('ssn')}" class="valid-error" th:errors="*{ssn}"></span>
 			<input id="ssn" th:field="*{ssn}" class="textbox" hidden="true" />
 			
 			<div class="form-group">
