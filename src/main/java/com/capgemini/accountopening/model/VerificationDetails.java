@@ -1,10 +1,14 @@
 package com.capgemini.accountopening.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class VerificationDetails {
+import com.capgemini.date.CustomDateDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+public class VerificationDetails implements Serializable{
 	
 	private String accNum;
 	
@@ -13,6 +17,8 @@ public class VerificationDetails {
 	private String ssn;
 	
 	@DateTimeFormat(pattern ="yyyy-MM-dd")
+	@JsonDeserialize(using = CustomDateDeserializer.class)
+
 	private Date dob;
 
 	public String getAccNum() {

@@ -49,9 +49,10 @@ public class ConfirmationPageController {
 		customer.getContactDetails().setCustomerId(customer.getPersonalDetails().getId());
 		contactDetailsService.saveContactDetails(customer.getContactDetails());
 		accountDetailsService.saveAccountDetails(customer.getAccountDetails());
-		if(customer.getAccountDetails().getHasNominee().equals("true"))
+		if(customer.getAccountDetails().getHasNominee().equals("true")) {
 			customer.getNomineeDetails().setCustomerId(customer.getPersonalDetails().getId());
 			nomineeDetailsService.saveNomineeDetails(customer.getNomineeDetails());
+		}
 		try {
 			response.sendRedirect("/final/"+accNum);
 		} catch (IOException e) {

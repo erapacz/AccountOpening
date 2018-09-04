@@ -15,6 +15,10 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
+bootJar {
+    baseName = 'gs-handling-form-submission'
+    version =  '0.1.0'
+}
 
 group = 'com.capgemini.account-opening'
 version = '0.0.1-SNAPSHOT'

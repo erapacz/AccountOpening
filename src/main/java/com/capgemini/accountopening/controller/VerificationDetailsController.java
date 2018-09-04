@@ -3,6 +3,7 @@ package com.capgemini.accountopening.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.accountopening.model.AccountDetails;
@@ -21,7 +22,7 @@ public class VerificationDetailsController {
 	private PersonalDetailsServiceImplementation personalDetailsService;
 	
 	@GetMapping(value="/verify/account/{accNum}")
-	public VerificationDetails getAccDetails(@PathVariable ("accNum") String accNum){
+	public @ResponseBody VerificationDetails getAccDetails(@PathVariable ("accNum") String accNum){
 		AccountDetails account;
 		PersonalDetails personal;
 		VerificationDetails verify = new VerificationDetails();
