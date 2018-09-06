@@ -10,6 +10,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class VerificationDetails implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private String accNum;
 	
 	private Long customerId;
