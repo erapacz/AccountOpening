@@ -22,7 +22,7 @@ public class ContactDetails {
 	private Long address_Id;
 	
 	@Column(name="customer_id")
-	private Long customer_Id;
+	private Long customerId;
 	
 	@Column(name="address1")
 	@Size(min=1, message="Field cannot be empty")
@@ -65,11 +65,11 @@ public class ContactDetails {
 	}
 
 	public Long getCustomerId() {
-		return customer_Id;
+		return customerId;
 	}
 
-	public void setCustomerId(Long customer_Id) {
-		this.customer_Id = customer_Id;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getAddress1() {
@@ -138,7 +138,7 @@ public class ContactDetails {
 
 	@Override
 	public String toString() {
-		return "ContactDetails [address_Id=" + address_Id + ", customer_Id=" + customer_Id + ", address1=" + address1
+		return "ContactDetails [address_Id=" + address_Id + ", customer_Id=" + customerId + ", address1=" + address1
 				+ ", address2=" + address2 + ", city=" + city + ", state=" + state + ", postal=" + postal + ", country="
 				+ country + ", phone=" + phone + ", email=" + email + "]";
 	}

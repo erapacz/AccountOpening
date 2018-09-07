@@ -1,5 +1,7 @@
 package com.capgemini.accountopening.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,11 @@ public class ContactDetailsServiceImplementation implements ContactDetailsServic
 	@Override
 	public ContactDetails getContactDetailsById(long id) {
 		return contactDetailsRepo.getOne(id);
+	}
+	
+	@Override
+	public Optional<ContactDetails> findByCustomerId(long id) {
+		return contactDetailsRepo.findByCustomerId(id);
 	}
 	
 }
