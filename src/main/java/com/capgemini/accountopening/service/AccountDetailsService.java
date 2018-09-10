@@ -7,4 +7,6 @@ public interface AccountDetailsService {
 	AccountDetails saveAccountDetails(AccountDetails accountDetails);
 	
 	AccountDetails getAccountDetailsById(String accNum);
+
+	AccountDetails findByCustomerId(Long customerId);
 }

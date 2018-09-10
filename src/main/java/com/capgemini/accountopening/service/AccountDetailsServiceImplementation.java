@@ -21,4 +21,9 @@ public class AccountDetailsServiceImplementation implements AccountDetailsServic
 	public AccountDetails getAccountDetailsById(String id) {
 		return accountDetailsRepo.findByAccNumber(id).get();
 	}
+
+	@Override
+	public AccountDetails findByCustomerId(Long customerId) {
+		return accountDetailsRepo.findByCustomerId(customerId);
+	}
 }

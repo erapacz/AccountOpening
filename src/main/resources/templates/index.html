@@ -18,6 +18,7 @@
        		<button class="tablinks" onclick="openCity(event, 'Checking Account')">Checking Account</button>
        		<button class="tablinks" onclick="openCity(event, 'Money Market')">Money Market</button>
        		<div class="float-right">
+       			<a id="login" class="tablinks" ><button >Login</button></a>
        			<a id="register" class="tablinks" ><button >Register</button></a>
        		</div>
     	</div>
@@ -56,5 +57,6 @@
   		var url = window.location.href;
   		url = url.substring(0, url.lastIndexOf("/")-4)+"8083";
   		document.getElementById("register").setAttribute("href",url);
+  		document.getElementById("login").setAttribute("href",url+"/login");
   	}
 </script>
